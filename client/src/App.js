@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import Button from "./components/Button/Button";
-import Switch from "./components/toggle/toggle";
+import Switch from "./components/Toggle/Toggle";
 import Tags from "./components/Tags/Tags";
 import Nav from "./components/Nav/Nav";
 
