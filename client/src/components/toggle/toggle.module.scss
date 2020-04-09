@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "variables";
 
 .reactToggle {
   height: 0;
@@ -11,8 +11,8 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 100px;
-  height: 50px;
+  width: 4rem;
+  height: 2.25rem;
   background: grey;
   border-radius: 100px;
   position: relative;
@@ -24,8 +24,8 @@
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 45px;
-  height: 45px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 45px;
   transition: 0.2s;
   background: #fff;

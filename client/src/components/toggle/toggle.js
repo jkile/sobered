@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./toggle.module.scss";
+import styles from "./Toggle.module.scss";
 
 function Switch({ isOn, handleToggle, onColor }) {
   return (
