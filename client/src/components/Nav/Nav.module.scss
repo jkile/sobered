@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+
+.nav{
+    background-color: $primary-color;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-between
+}
+
