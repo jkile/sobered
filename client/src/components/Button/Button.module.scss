@@ -9,7 +9,15 @@
     border-radius: 5px;
     transition: .3s;
     font-size: 1rem;
+    cursor: pointer;
+    background-position: center;
+    transition: background 0.8s;
 }
 .btn:hover{
-    background-color: $dark-color;
+    background: $dark-color radial-gradient(circle, transparent 1%, $dark-color 1%) center/15000%;
+}
+.btn:active{
+    background-color: $primary-color;
+    background-size: 100%;
+    transition: background 0s;
 }

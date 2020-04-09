@@ -1,0 +1,116 @@
+@import "variables";
+
+// .form{
+//     margin: 10px;
+
+//     label{
+//         font-family: $primary-font;
+//         color: gray;
+//         position: relative;
+//         top: 1.5rem;
+//         left: .25rem;
+//         font-size: 1rem;
+//         z-index: -1;
+//     }
+
+//     input{
+//         &:focus, &valid{
+//             & ~ label{
+//                 top: 0rem;
+//                 color: blue;
+//             }
+//             border-bottom: 3px solid darken($color: rgb(156, 143, 143), $amount: 60);
+            
+//         }
+//     }
+
+// }
+
+
+
+// .search{
+//     display: block;
+//     border-top: 0px;
+//     border-left: 0px;
+//     border-right: 0px;
+//     border-bottom: 3px solid rgb(156, 143, 143);
+//     font-size: 1rem;
+//     font-family: $primary-font;
+//     width: 40rem;
+//     padding: .25rem;
+//     transition: .5s;
+//     background: none;
+    
+// }
+
+.form{
+    position: relative;
+    margin: 1rem;
+    input{
+        font-size: 1rem;
+        padding: .25rem;
+        display: block;
+        width: 40rem;
+        border: none;
+        border-bottom: 2px solid #757575;
+    }
+    label{
+        color:#999; 
+        font-size:1rem;
+        font-family: $primary-font;
+        position:absolute;
+        pointer-events:none;
+        left:5px;
+        top:.35rem;
+        transition:0.2s ease all; 
+      }
+    input:focus ~ label{
+        top:-1.25rem;
+        font-size:.85rem;
+        color:#5264AE;
+    }
+    .bar  { 
+        position:relative; 
+        display:block; 
+        width:40.49rem; 
+    }
+    .bar:before, .bar:after{
+        content:'';
+        height:2px; 
+        width:0;
+        bottom:1px; 
+        position: absolute;
+        background:#5264AE; 
+        transition:0.2s ease all; 
+    }
+    .bar:before {
+        left:50%;
+    }
+    .bar:after {
+        right:50%; 
+    }
+
+    input:focus ~ .bar:before, input:focus ~ .bar:after {
+        width:50%;
+    }
+
+    .highlight {
+        position:absolute;
+        height:60%; 
+        width:100px; 
+        top:25%; 
+        left:0;
+        pointer-events:none;
+        opacity:0.5;
+      }
+      
+      input:focus ~ .highlight {
+        animation:inputHighlighter 0.3s ease;
+      }
+      
+      @keyframes inputHighlighter {
+        from  { background:#5264AE; }
+        to    { width:0; background:transparent; }
+      }
+}
+
