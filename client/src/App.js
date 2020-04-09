@@ -4,6 +4,7 @@ import "./App.scss";
 import Button from "./components/Button/Button";
 import Switch from "./components/toggle/toggle";
 import Tags from "./components/Tags/Tags";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   const [value, setValue] = useState(false);
@@ -17,6 +18,7 @@ function App() {
       />
       <Button buttonText="Button" />
       <Tags />
+      <Nav />
     </div>
   );
 }
