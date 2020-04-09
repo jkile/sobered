@@ -10,6 +10,7 @@ function App() {
   const [value, setValue] = useState(false);
   return (
     <div className="App">
+      <Nav />
       <Button />
       <Switch
         isOn={value}
@@ -18,7 +19,6 @@ function App() {
       />
       <Button buttonText="Button" />
       <Tags />
-      <Nav />
     </div>
   );
 }

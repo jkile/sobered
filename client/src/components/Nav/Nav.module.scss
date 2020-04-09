@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "variables";
 
 
 .nav{
@@ -20,4 +20,5 @@
 
 h1{
     margin:10px;
+    font-family: $primary-font;
 }
