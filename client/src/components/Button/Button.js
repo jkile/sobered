@@ -1,10 +1,10 @@
 import React from "react";
-import { btn } from "./Button.module.scss";
+import styles from "./Button.module.scss";
 
-function Button(){
+function Button(props){
 
     return(
-        <button className={btn}>Button</button>
+        <button className={styles.btn}>{props.buttonText}</button>
     )
 }
 

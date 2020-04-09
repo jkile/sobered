@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import Button from "./components/Button/Button";
 import Switch from "./components/toggle/toggle";
+import Tags from "./components/Tags/Tags";
 
 function App() {
   const [value, setValue] = useState(false);
@@ -14,6 +15,8 @@ function App() {
         onColor="#9932CC"
         handleToggle={() => setValue(!value)}
       />
+      <Button buttonText="Button" />
+      <Tags />
     </div>
   );
 }
