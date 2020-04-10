@@ -15,6 +15,7 @@
 }
 .btn:hover{
     background: $dark-color radial-gradient(circle, transparent 1%, $dark-color 1%) center/15000%;
+    
 }
 .btn:active{
     background-color: $primary-color;
