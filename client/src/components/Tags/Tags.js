@@ -1,10 +1,10 @@
 import React from 'react';
 import {tag} from "./Tags.module.scss";
 
-export default function Tags() {
+export default function Tags(props) {
     return (
         <div className={tag}>
-            Tag
+            {props.text}
         </div>
     )
 }

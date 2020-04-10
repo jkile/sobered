@@ -1,0 +1,60 @@
+@import "variables";
+
+.card{
+    height: 18rem;
+    width: 18rem;
+    border: 1px white;
+    box-shadow: 3px 2px 6px 2px lightgray;
+    border-radius: 5px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cardHeader{
+    background-color: $secondary-color;
+    padding: .5rem;
+    font-size: 2rem;
+    font-family: $primary-font;
+    padding-bottom: 1rem;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 600;
+}
+.daysContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cardSubHeader{
+    padding: .5rem;
+    font-size: 1.2rem;
+    font-family: $secondary-font;
+
+}
+.description{
+    font-size: .85rem;
+    font-family: $primary-font;
+    font-weight: 100;
+    padding: .5rem;
+
+}
+.bottomCardSection{
+    display:flex;
+    flex-direction: row;
+    padding-top: 2rem;
+}
+
+.tagsContainer{
+    display: flex;
+    align-self: center;
+    justify-self: start;
+}
+
+.joinButton{
+    
+    margin: .5rem;
+}
