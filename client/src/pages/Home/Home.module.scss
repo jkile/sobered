@@ -6,6 +6,7 @@
 }
 .cardContainer{
     position: absolute;
+    padding: 1rem;
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -19,6 +20,13 @@
         justify-content: flex-start;
         position: relative;
         max-width: 60rem;
-        height: 56.7rem;
+        height: 53rem;
     }
+}
+
+.cardContainerHeader{
+    margin: 1rem;
+    font-size: 3rem;
+    font-family: $primary-font;
+
 }

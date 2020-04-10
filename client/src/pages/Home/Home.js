@@ -111,6 +111,7 @@ export default function Home() {
                     handleToggle={() => setValue(!value)}
                 />
                 <SearchBar />
+                <h1 className={styles.cardContainerHeader}>Groups</h1>
                 <div className={styles.cardContainer}>
                     {groups.map(item => {
                         return <GroupCard {...item} />
