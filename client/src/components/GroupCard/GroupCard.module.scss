@@ -17,7 +17,7 @@
     //background-color: $secondary-color;
     height: 5rem;
     background: rgb(65,250,252);
-    background: linear-gradient(170deg, #50b6bb, #ff0340);
+    background: linear-gradient(170deg, $dark-color, $accent-color);
     
     -webkit-animation: AnimationName 7s ease infinite;
     -moz-animation: AnimationName 7s ease infinite;
@@ -49,6 +49,8 @@
     border-top-right-radius: 5px;
     grid-area: 1 / 1 / 2 /  4;
 }
+
+
 .daysContainer{
     grid-area: 2 / 1 / 3 / 4;
     display: flex;

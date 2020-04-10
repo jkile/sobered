@@ -9,7 +9,8 @@ function Nav() {
       </div>
       <div className={flexEnd}>
         <img src="https://www.placehold.it/45x45"></img>
-        <p>xX420PraiseHimXx</p>
+        <p>Hi, John Doe</p>
+        <a href="">Sign Out</a>
       </div>
     </div>
   );
