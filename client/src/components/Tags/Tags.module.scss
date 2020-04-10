@@ -3,8 +3,9 @@
 .tag{
     height: 1.2rem;
     width: 3rem;
-    background: rgb(65,250,252);
-    background: linear-gradient(170deg, $light-color 0%, $accent-color 100%);
+    background-color: $dark-color;
+    // background: rgb(65,250,252);
+    // background: linear-gradient(170deg, $light-color 0%, $accent-color 100%);
     border-radius: 5px;
     text-align: center;
     line-height: 1.2rem;
@@ -13,5 +14,6 @@
     font-family: $primary-font;
     margin: .5rem;
     align-self: center;
-    box-shadow: 2px 2px 5px lightgrey;
+    //box-shadow: 2px 2px 5px lightgrey;
+    box-shadow: inset 0 0 10px rgb(128, 128, 128);
 }
