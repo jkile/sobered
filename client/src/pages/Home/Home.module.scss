@@ -1,0 +1,16 @@
+@import "variables";
+
+.container{ 
+    max-width: 90rem;
+    margin: auto;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+
+    @media(min-width: 768px){
+        justify-content: flex-start;
+    }
+}
