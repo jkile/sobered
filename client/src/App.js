@@ -6,6 +6,7 @@ import Switch from "./components/Toggle/Toggle";
 import Tags from "./components/Tags/Tags";
 import Nav from "./components/Nav/Nav";
 import SearchBar from "./components/SearchBar/SearchBar"
+import GroupCard from "./components/GroupCard/GroupCard";
 
 function App() {
   const [value, setValue] = useState(false);
@@ -21,6 +22,8 @@ function App() {
       <Button buttonText="Button" />
       <Tags />
       <SearchBar/>
+
+      <GroupCard/>
     </div>
   );
 }

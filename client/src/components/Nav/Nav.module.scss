@@ -7,6 +7,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  h1{
+    margin:10px;
+    font-family: $primary-font;
+
+  }
 }
 
 .flexEnd {
@@ -17,8 +22,3 @@
   padding: 5px;
 }
 
-h1{
-    margin:10px;
-    font-family: $primary-font;
-
-}
