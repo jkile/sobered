@@ -1,0 +1,22 @@
+@import  "variables";
+
+.sidebarHeader {
+    display: block;
+    text-align: center;
+    background-color: $secondary-color;
+    margin-top: 1rem;
+    font-family: $primary-font;
+}
+
+.sidebar {
+    height: 30rem;
+    width: 30rem;
+    border-radius: 2px;
+    background-color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    font-family: $secondary-font;
+    align-items: center;
+    
+}
+
