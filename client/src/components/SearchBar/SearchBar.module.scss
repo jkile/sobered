@@ -72,5 +72,13 @@
         from  { background:#5264AE; }
         to    { width:0; background:transparent; }
       }
+      svg{
+          position: absolute;
+          top: .2rem;
+          left: 39rem;
+          fill: #919191;
+          height: 1.5rem;
+          width: 1.5rem;
+      }
 }
 
