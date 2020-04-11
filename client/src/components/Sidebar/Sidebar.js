@@ -1,11 +1,11 @@
 import React from "react";
-import {sidebar, sidebarHeader} from "./Sidebar.module.scss"
-import {cardContainer} from "../../pages/Home/Home.module.scss"
+import styles from "./Sidebar.module.scss"
+import { cardContainer } from "../../pages/Home/Home.module.scss"
 import OwnedGroup from "../OwnedGroup/OwnedGroup"
 
 
 function Sidebar() {
-    
+
     const groups = [
         {
             groupName: "HA Tempe",
@@ -17,19 +17,22 @@ function Sidebar() {
             location: "zoom.us/45fdujs"
         }
     ]
-  return (
-      <div>
-      <div className={sidebarHeader}>My Groups</div>
-      <div className={sidebar}>
-        
-              {/* conditional logic here (if user has) */}
-          {groups.map(item => {
+    return (
+        <div className={styles.sidebarGroup}>
+            <div className={styles.sidebarHeader}>My Groups</div>
+            <div className={styles.sidebar}>
+                <div>
+
+                    {/* conditional logic here (if user has) */}
+                    {groups.map(item => {
                         return <OwnedGroup {...item} />
                     })}
-      </div>
-      </div>
-    
-  );
+                </div>
+            </div>
+        </div>
+
+
+    );
 }
 
 export default Sidebar;
