@@ -58,6 +58,7 @@
     flex-wrap: wrap;
     flex-shrink: 1;
     height: 2rem;
+    padding-left: .25rem;
 }
 
 .description{
@@ -76,6 +77,7 @@
     flex-direction: row;
     flex-wrap: wrap-reverse;
     align-content: flex-start;
+    padding: .25rem;
 }
 
 .joinButton{

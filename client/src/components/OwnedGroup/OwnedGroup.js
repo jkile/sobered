@@ -8,7 +8,7 @@ export default function GroupCard(props) {
     <div className={styles.card}>
       <h1 className={styles.ownedCardHeader}>{props.groupName}</h1>
     
-        <img className={styles.thumbnail} src={props.thumbnail}></img>
+       <img className={styles.thumbnail} src={props.thumbnail}></img>
      
       <div className={styles.daysContainer}>
         {props.days.map((item) => {

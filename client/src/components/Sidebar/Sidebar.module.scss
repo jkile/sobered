@@ -1,22 +1,30 @@
 @import  "variables";
 
 .sidebarHeader {
-    display: block;
-    text-align: center;
-    background-color: $secondary-color;
-    margin-top: 1rem;
+    margin: 1rem;
+    font-size: 3rem;
     font-family: $primary-font;
+    color: rgb(66, 66, 66);
 }
 
 .sidebar {
-    height: 30rem;
-    width: 30rem;
-    border-radius: 2px;
-    background-color: $secondary-color;
+    height: 50rem;
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    background: linear-gradient(170deg, $dark-color, #75ced4);
+    box-shadow: inset 0 0 10px rgb(161, 161, 161);
     display: flex;
     flex-direction: column;
     font-family: $secondary-font;
     align-items: center;
+    overflow: auto;
     
 }
 
+.sidebarGroup{
+    position: sticky;
+    top: 5rem;
+}
