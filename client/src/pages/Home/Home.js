@@ -28,7 +28,7 @@ export default function Home() {
             days: ["Tues"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        },  {
+        }, {
             groupName: "HA Tempe",
             days: ["Mon", "Wed", "Sat"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
@@ -45,7 +45,7 @@ export default function Home() {
             days: ["Tues"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        },  {
+        }, {
             groupName: "HA Tempe",
             days: ["Mon", "Wed", "Sat"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
@@ -105,12 +105,14 @@ export default function Home() {
         <div>
             <Nav />
             <div className={styles.container}>
-                <Switch
-                    isOn={value}
-                    onColor="#0ce5e1"
-                    handleToggle={() => setValue(!value)}
-                />
-                <SearchBar />
+                <div className={styles.searchBar}>
+                    <SearchBar />
+                    <Switch
+                        isOn={value}
+                        onColor="#0ce5e1"
+                        handleToggle={() => setValue(!value)}
+                    />
+                </div>
                 <h1 className={styles.cardContainerHeader}>Groups</h1>
                 <div className={styles.cardContainer}>
                     {groups.map(item => {

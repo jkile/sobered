@@ -60,15 +60,10 @@
     height: 2rem;
 }
 
-.cardSubHeader{
-    padding: .5rem;
-    font-size: 1.2rem;
-    font-family: $secondary-font;
-}
 .description{
-    font-size: .85rem;
+    font-size: .95rem;
     font-family: $secondary-font;
-    font-weight: 100;
+    color: rgb(82, 82, 82);
     padding: .5rem;
     padding-top: 0rem;
     grid-area: 3 / 1 / 4 / 4;
