@@ -4,6 +4,11 @@
     max-width: 90rem;
     margin: auto;
 }
+.flexContainerRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 .cardContainer{
     position: absolute;
     padding: 1rem;

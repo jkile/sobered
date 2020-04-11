@@ -5,6 +5,7 @@ import Tags from "../../components/Tags/Tags";
 import Nav from "../../components/Nav/Nav";
 import SearchBar from "../../components/SearchBar/SearchBar"
 import GroupCard from "../../components/GroupCard/GroupCard";
+import Sidebar from "../../components/Sidebar/Sidebar"
 import styles from "./Home.module.scss";
 
 export default function Home() {
@@ -107,19 +108,26 @@ export default function Home() {
             <div className={styles.container}>
                 <div className={styles.searchBar}>
                     <SearchBar />
+                   
+           
                     <Switch
                         isOn={value}
                         onColor="#0ce5e1"
                         handleToggle={() => setValue(!value)}
                     />
                 </div>
+                
                 <h1 className={styles.cardContainerHeader}>Groups</h1>
+                <div className={styles.flexContainerRow}>
                 <div className={styles.cardContainer}>
                     {groups.map(item => {
                         return <GroupCard {...item} />
                     })}
                 </div>
+                <Sidebar/>
+                </div>
             </div>
+                
         </div>
     );
 }
