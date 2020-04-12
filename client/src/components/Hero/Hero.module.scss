@@ -1,0 +1,38 @@
+@import "variables";
+
+.hero{
+    height: 30rem;
+    width: 100vw;
+    background-color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+}
+
+.heroHeader{
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 5rem;
+    font-family: $primary-font;
+    font-style: italic;
+    color: white;
+}
+
+.heroSubtitle{
+    color: white;
+    align-self: center;
+    font-size: 1.5rem;
+    font-family: $primary-font;
+    margin-top: .5rem;
+}
+
+.buttonContainer{
+    margin-top: 9rem;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.button{
+    margin: 2rem;
+}
