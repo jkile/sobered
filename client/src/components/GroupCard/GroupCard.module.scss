@@ -9,15 +9,16 @@
     border: 1px white;
     box-shadow: 3px 2px 6px 2px lightgray;
     border-radius: 5px;
-    margin: 1rem;
+    margin: .5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1.2fr .5fr 1fr 1fr;
-    transition: .3s;
+    transition: .5s;
   
 }
 
 .show{
+
     transition: flex 1s ease-in-out;
     position: absolute;
     transition: .3s;
@@ -121,4 +122,5 @@
     margin: .5rem;
     grid-area: 4 / 3 / 5 / 4;
     align-self: end;
+    justify-self: end;
 }

@@ -14,7 +14,6 @@ export default function GroupCard(props) {
         let currentPosition = currentModal.current.getBoundingClientRect();
         let currentWidth = window.innerWidth;
         let currentHeight = window.innerHeight;
-        console.log(currentPosition)
         anime({
             targets: currentModal.current,
             translateY: currentHeight * .1 - currentPosition.top,
@@ -22,7 +21,7 @@ export default function GroupCard(props) {
             height: "80vh",
             width: "80vw",
             duration: 50,
-            easing: 'easeInOutQuad'
+            easing: 'easeInOutExpo'
         })
         setShow(true);
     }
@@ -32,12 +31,22 @@ export default function GroupCard(props) {
             targets: currentModal.current,
             height: "18rem",
             width: "18rem",
+            duration: 100,
+            easing: 'easeInOutExpo'
+        })
+        anime({
+            targets: currentModal.current,
             translateY: [currentPosition.top, 0],
             translateX: [currentPosition.left, 0],
+            delay: 50,
             duration: 50,
-            easing: 'easeInOutQuad'
+            easing: 'easeInOutExpo'
+            
         })
-        setShow(false);
+        setTimeout(() => {
+            setShow(false);
+        }, 390)
+
     }
     
     return (
