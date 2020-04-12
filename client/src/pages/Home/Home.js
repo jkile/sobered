@@ -4,8 +4,8 @@ import Switch from "../../components/Toggle/Toggle";
 import Tags from "../../components/Tags/Tags";
 import Nav from "../../components/Nav/Nav";
 import SearchBar from "../../components/SearchBar/SearchBar"
-import GroupCard from "../../components/GroupCard/GroupCard";
 import Sidebar from "../../components/Sidebar/Sidebar"
+import CardContainer from "../../components/CardContainer/CardContainer";
 import styles from "./Home.module.scss";
 
 export default function Home() {
@@ -135,12 +135,7 @@ export default function Home() {
                 <div className="leftView">
                     <h1 className={styles.cardContainerHeader}>My Groups</h1>
                     <div className={styles.flexContainerRow}>
-                        <div className={styles.cardContainer}>
-                            {myGroups.map(item => {
-                                return <div className={styles.card}><GroupCard {...item} /></div>
-                            })}
-                        </div>
-
+                        <CardContainer results={myGroups}/>
                     </div>
 
                     <h1 className={styles.cardContainerHeader}>Search Groups</h1>
@@ -155,12 +150,7 @@ export default function Home() {
                         />
                     </div>
                     <div className={styles.flexContainerRow}>
-                        <div className={styles.cardContainer}>
-                            {groups.map(item => {
-                                return <div className={styles.card}><GroupCard {...item} /></div>
-                            })}
-                        </div>
-
+                        <CardContainer results={groups}/>
                     </div>
                 </div>
                 <div className={styles.sidebarContainer}>
