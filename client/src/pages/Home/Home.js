@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../components/Button/Button";
-import Switch from "../../components/Toggle/Toggle";
-import Tags from "../../components/Tags/Tags";
+import Toggle from "../../components/Toggle/Toggle";
 import Nav from "../../components/Nav/Nav";
 import SearchBar from "../../components/SearchBar/SearchBar"
 import Sidebar from "../../components/Sidebar/Sidebar"
@@ -128,6 +127,7 @@ export default function Home() {
         }
     ];
 
+
     return (
         <div>
             <Nav />
@@ -143,7 +143,7 @@ export default function Home() {
                         <SearchBar />
 
 
-                        <Switch
+                        <Toggle
                             isOn={value}
                             onColor="#0ce5e1"
                             handleToggle={() => setValue(!value)}

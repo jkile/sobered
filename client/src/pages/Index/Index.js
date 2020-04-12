@@ -23,6 +23,12 @@ export default function Index() {
             days: ["Tues"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+        },
+        {
+            groupName: "Some Name",
+            days: ["Tues"],
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
         }
     ]
     return (
