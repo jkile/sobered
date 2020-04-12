@@ -4,11 +4,12 @@ import "./App.scss";
 import Home from "./pages/Home/Home";
 import Index from "./pages/Index/Index";
 
+
 function App() {
 
   return (
     <div className="App">
-      <Index />
+        <Home />
     </div>
   );
 }
