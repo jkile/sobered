@@ -5,8 +5,8 @@ import styles from "./CardContainer.module.scss";
 export default function CardContainer(props) {
     return (
         <div className={styles.cardContainer}>
-            {props.results.map(item => {
-                return <div className={styles.card}><GroupCard {...item} /></div>
+            {props.results.map((item, i )=> {
+                return <div className={styles.card}><GroupCard {...item} index={i}/></div>
             })}
         </div>
     )
