@@ -8,33 +8,32 @@ import anime from 'animejs';
 
 export default function GroupCard(props) {
 
-    
-
     const currentModal = useRef(null);
 
     const [show, setShow] = useState(false);
     const openModal = () => {
+  
         setShow(true);
         setTimeout(() => {
             let currentPosition = currentModal.current.getBoundingClientRect();
-            let currentOffset = currentModal.current.offsetWidth;
             let currentWidth = window.innerWidth;
-            let currentHeight = window.innerHeight;            
-            anime({
-                targets: currentModal.current,
-                translateY:  currentHeight * .1 - currentPosition.top,
-                translateX: currentWidth * .1 - currentPosition.left,
-                duration: 50,
-                easing: 'easeInOutExpo'
-            })
+            let currentHeight = window.innerHeight;  
             anime({
                 targets: currentModal.current,
                 height: "80vh",
                 width: "80vw",
-                duration: 100,
-                easing: 'easeInOutExpo'
+                duration: 150,
+                easing: 'easeInOutBounce'
+            })      
+            anime({
+                targets: currentModal.current,
+                translateY:  currentHeight * .1 - currentPosition.top,
+                translateX: currentWidth * .1 - currentPosition.left,
+                duration: 150,
+                easing: 'easeInOutBounce'
             })
-        }, 10)
+            
+        }, 20)
 
     }
     const closeModal = () => {
@@ -57,13 +56,13 @@ export default function GroupCard(props) {
         })
         setTimeout(() => {
             setShow(false);
-        }, 390)
+        }, 430)
 
     }
 
 
     return (
-        <div>
+        <>
             <div className={show ? styles.show : styles.card} ref={currentModal}>
 
                 <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.groupName}</h1>
@@ -79,12 +78,14 @@ export default function GroupCard(props) {
                     })}
                 </div>
                 <div className={show ? styles.modalButton : styles.joinButton}>
-                    <Button buttonText="View" onClick={openModal} />
+
+                    {show ? <Button buttonText="Close" onClick={closeModal} variant="accent"/> : <Button buttonText="View" onClick={openModal}/>}
                 </div>
 
                 <GroupModal closeModal={closeModal} show={false} />
             </div>
+            <div className={show ? styles.card : styles.none}></div>
             <div className={show ? styles.overlay : styles.hide} onClick={closeModal}></div>
-        </div>
+        </>
     )
 }

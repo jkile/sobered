@@ -1,9 +1,9 @@
 @import "variables";
 
-
-
 .card{
-    overflow: visible;
+    position: relative;
+    top: auto;
+    left: auto;
     min-width: 0;
     padding: .5rem;
     transition: flex 1s ease-in-out;
@@ -22,6 +22,8 @@
 }
 
 .show{
+    height: 18rem;
+    width: 18rem;
     position: absolute;
     transition: .3s;
     z-index: 5;

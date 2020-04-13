@@ -3,12 +3,14 @@
     padding: 1rem;
     margin: 1rem;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
-    overflow-x: scroll;
+    // overflow-x: scroll;
     background-color: white;
     box-shadow: inset 0 0 10px rgb(212, 212, 212);
     border-radius: 5px;
+  
+      
     @media(min-width: 768px){
         justify-content: flex-start;
 
