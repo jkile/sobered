@@ -4,26 +4,38 @@ import styles from "./GroupCard.module.scss";
 import Button from "../Button/Button";
 import Tags from "../Tags/Tags";
 import GroupModal from "../GroupModal/GroupModal";
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs';
 
 export default function GroupCard(props) {
 
+    
+
     const currentModal = useRef(null);
+
     const [show, setShow] = useState(false);
     const openModal = () => {
-        let currentPosition = currentModal.current.getBoundingClientRect();
-        let currentWidth = window.innerWidth;
-        let currentHeight = window.innerHeight;
-        anime({
-            targets: currentModal.current,
-            translateY: currentHeight * .1 - currentPosition.top,
-            translateX: currentWidth * .1 - currentPosition.left,
-            height: "80vh",
-            width: "80vw",
-            duration: 50,
-            easing: 'easeInOutExpo'
-        })
         setShow(true);
+        setTimeout(() => {
+            let currentPosition = currentModal.current.getBoundingClientRect();
+            let currentOffset = currentModal.current.offsetWidth;
+            let currentWidth = window.innerWidth;
+            let currentHeight = window.innerHeight;            
+            anime({
+                targets: currentModal.current,
+                translateY:  currentHeight * .1 - currentPosition.top,
+                translateX: currentWidth * .1 - currentPosition.left,
+                duration: 50,
+                easing: 'easeInOutExpo'
+            })
+            anime({
+                targets: currentModal.current,
+                height: "80vh",
+                width: "80vw",
+                duration: 100,
+                easing: 'easeInOutExpo'
+            })
+        }, 10)
+
     }
     const closeModal = () => {
         let currentPosition = currentModal.current.getBoundingClientRect();
@@ -41,31 +53,32 @@ export default function GroupCard(props) {
             delay: 50,
             duration: 50,
             easing: 'easeInOutExpo'
-            
+
         })
         setTimeout(() => {
             setShow(false);
         }, 390)
 
     }
-    
+
+
     return (
-        <div className="modal">
+        <div>
             <div className={show ? styles.show : styles.card} ref={currentModal}>
 
-                <h1 className={styles.cardHeader}>{props.groupName}</h1>
-                <div className={styles.daysContainer}>
+                <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.groupName}</h1>
+                <div className={show ? styles.modalDays : styles.daysContainer}>
                     {props.days.map(item => {
                         return <Tags text={item} />
                     })}
                 </div>
-                <p className={styles.description}>{props.description}</p>
-                <div className={styles.tagsContainer}>
+                <p className={show ? styles.modalDescription : styles.description}>{props.description}</p>
+                <div className={show ? styles.modalTags : styles.tagsContainer}>
                     {props.tags.map(item => {
                         return <Tags text={item} />
                     })}
                 </div>
-                <div className={styles.joinButton}>
+                <div className={show ? styles.modalButton : styles.joinButton}>
                     <Button buttonText="View" onClick={openModal} />
                 </div>
 
