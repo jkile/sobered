@@ -30,7 +30,7 @@ export default function LoginModal(props) {
                     <SearchBar inputText={"Email"} width="15" type="text" name="email" value={emailValue} onChange={e => setEmailValue(e.target.value)} />
                     <SearchBar inputText={"Password"} width="15" type="password" name="password" value={passwordValue} onChange={e => setPasswordValue(e.target.value)} />
                     <div className={styles.signInButton}>
-                        <Button variant="primary" buttonText="Sign In" />
+                        <Button variant="primary" buttonText="Login" />
                     </div>
 
                 </form>

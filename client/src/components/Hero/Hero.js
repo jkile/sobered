@@ -27,10 +27,10 @@ export default function Hero() {
             <h2 className={styles.heroSubtitle}>A Virtual Community For Addicts</h2>
             <div className={styles.buttonContainer}>
                 <div className={styles.button}>
-                    <Button buttonText="Log In" onClick={openModal}/>
+                    <Button buttonText="Login" onClick={openModal} size="large"/>
                 </div>
                 <div className={styles.button}>
-                    <Button buttonText="Sign Up" onClick={openModal}/>
+                    <Button buttonText="Sign Up" onClick={openModal} size="large"/>
                 </div>
             </div>
             <LoginModal show={show} modalClose={closeModal}/>
