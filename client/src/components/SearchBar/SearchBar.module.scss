@@ -9,11 +9,14 @@
         font-size: 1rem;
         padding: .25rem;
         display: block;
-        width: 40rem;
         border: none;
         border-bottom: 2px solid #919191;
-        outline: none;
+        box-shadow: none;
+        -webkit-appearance: none;
+        border-radius: 0px;
+        -webkit-border-radius:0px;
     }
+    
     label{
         color:#919191; 
         font-size:1rem;
@@ -28,11 +31,11 @@
         top:-1.25rem;
         font-size:.85rem;
         color:#5264AE;
+    
     }
     .bar  { 
         position:relative; 
         display:block; 
-        width:40.49rem; 
     }
     .bar:before, .bar:after{
         content:'';

@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import styles from "./GroupCard.module.scss";
 import Button from "../Button/Button";
 import Tags from "../Tags/Tags";
-import GroupModal from "../GroupModal/GroupModal";
 import anime from 'animejs';
 
 export default function GroupCard(props) {
@@ -81,8 +80,6 @@ export default function GroupCard(props) {
 
                     {show ? <Button buttonText="Close" onClick={closeModal} variant="accent"/> : <Button buttonText="View" onClick={openModal}/>}
                 </div>
-
-                <GroupModal closeModal={closeModal} show={false} />
             </div>
             <div className={show ? styles.card : styles.none}></div>
             <div className={show ? styles.overlay : styles.hide} onClick={closeModal}></div>

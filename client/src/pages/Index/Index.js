@@ -36,7 +36,7 @@ export default function Index() {
             <Hero/>
             <div className={styles.searchContainer}>
                 <h1 className={styles.searchHeader}>Search</h1>
-                <SearchBar />
+                <SearchBar inputText={"Search Groups"} width="20" type="text"/>
                 <CardContainer results={myGroups}/>
             </div>
         </div>

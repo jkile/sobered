@@ -1,0 +1,58 @@
+@import "variables";
+
+.hide{
+    height: 0;
+    width: 0;
+    opacity: 0;
+    top: 0;
+    margin-left: -11rem;
+    margin-top: -11rem;
+    
+}
+
+.loginModal{
+    opacity: 1;
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    margin-left: -10rem;
+    margin-top: -10rem;
+    height: 18rem;
+    width: 18rem;
+    padding: 1rem;
+    background-color: white;
+    z-index: 5;
+    border-radius: 5px;
+    box-shadow: 1px 1px 12px rgb(94, 94, 94);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.loginModalHeader{
+    font-family: $primary-font;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.signInButton{
+    align-self: flex-end;
+    padding: 1rem;
+    padding-top: 3rem;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+    opacity: .5;
+    background-color: black;
+    display: flex;
+}
