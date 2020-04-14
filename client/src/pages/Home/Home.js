@@ -6,6 +6,7 @@ import SearchBar from "../../components/SearchBar/SearchBar"
 import Sidebar from "../../components/Sidebar/Sidebar"
 import CardContainer from "../../components/CardContainer/CardContainer";
 import styles from "./Home.module.scss";
+import Chat from "../../components/Chat/Chat";
 
 export default function Home() {
     const [value, setValue] = useState(false);
@@ -154,7 +155,9 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={styles.sidebarContainer}>
-                    <Sidebar />
+                   
+                        <Chat/>
+                   
                 </div>
 
             </div>
