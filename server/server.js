@@ -1,15 +1,18 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const multer = require("multer");
+const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../");
 mongoose.connect("mongodb://localhost/sobered_db", { useNewUrlParser: true });
 const db = mongoose.connection;
 const PORT = 8000;
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 
+app.use(cors());
 app.use(express.json());
 app.use(express.static(publicDirectoryPath));
 app.use(userRoutes);
@@ -17,21 +20,40 @@ const expressServer = app.listen(PORT, () => {
   console.log("server is listening on " + PORT);
 });
 
-server.listen(80)
+server.listen(80);
 
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
+db.once("open", function() {
   console.log("connected boyyyy");
 });
 
+io.on("connect", socket => {
+  console.log(socket.id);
+  console.log("greetings");
+  socket.on("sendmsg", msg => {
+    console.log(msg);
+    io.emit("recMessage", msg.message);
+  });
+});
 
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function(req, file, cb) {
+    cb(null, "test");
+  }
+});
 
-io.on("connect", (socket) => {
-  console.log(socket.id)
-  console.log("greetings")
-  socket.on("sendmsg", (msg) => {
-    console.log(msg)
-    io.emit("recMessage", msg.message)
-  })
+const upload = multer({ storage: storage }).single("file");
 
+app.post("/upload", function(req, res) {
+  upload(req, res, function(err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(500).json(err);
+    } else if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).send(req.file);
+  });
 });
