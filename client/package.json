@@ -14,7 +14,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typeface-roboto": "0.0.75"
+    "socket.io-client": "^2.3.0",
+    "typeface-roboto": "0.0.75",
+    "use-immer": "^0.4.0",
+    "use-socket.io-client": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
