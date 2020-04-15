@@ -7,33 +7,37 @@ import anime from "animejs";
 export default function Hero() {
 
     const [show, setShow] = useState(false);
+    const [modalType, setModalType] = useState(false);
 
     function closeModal() {
         setShow(false);
     }
 
-    function openModal(){
+    function openLoginModal(){
+        setModalType(false)
         setShow(true);
-        anime({
-            targets: ".loginModal",
-            opacity: 1,
-            duration: 200
-        })
     }
+
+    function openSignUpModal(){
+        setModalType(true)
+        setShow(true);
+    }
+
 
     return (
         <div className={styles.hero}>
-            <h1 className={styles.heroHeader}>Sobered.</h1>
-            <h2 className={styles.heroSubtitle}>A Virtual Community For Addicts</h2>
             <div className={styles.buttonContainer}>
                 <div className={styles.button}>
-                    <Button buttonText="Login" onClick={openModal} size="large"/>
+                    <Button buttonText="Login" onClick={openLoginModal}/>
                 </div>
                 <div className={styles.button}>
-                    <Button buttonText="Sign Up" onClick={openModal} size="large"/>
+                    <Button buttonText="Sign Up" onClick={openSignUpModal} variant="accent"/>
                 </div>
             </div>
-            <LoginModal show={show} modalClose={closeModal}/>
+            <h1 className={styles.heroHeader}>Sobered.</h1>
+            <h2 className={styles.heroSubtitle}>A Virtual Community For Addicts</h2>
+            
+            <LoginModal show={show} modalClose={closeModal} modalType={modalType} setModalType={setModalType}/>
         </div>
     )
 }
