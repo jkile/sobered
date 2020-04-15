@@ -7,6 +7,7 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import CardContainer from "../../components/CardContainer/CardContainer";
 import styles from "./Home.module.scss";
 import Chat from "../../components/Chat/Chat";
+import CreateGroupButton from "../../components/CreateGroupButton/CreateGroupButton"
 
 export default function Home() {
     const [value, setValue] = useState(false);
@@ -135,6 +136,7 @@ export default function Home() {
             <div className={styles.container}>
                 <div className="leftView">
                     <h1 className={styles.cardContainerHeader}>My Groups</h1>
+                    <CreateGroupButton/>
                     <div className={styles.flexContainerRow}>
                         <CardContainer results={myGroups}/>
                     </div>
