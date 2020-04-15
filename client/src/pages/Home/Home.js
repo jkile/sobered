@@ -136,12 +136,12 @@ export default function Home() {
                 <div className="leftView">
                     <h1 className={styles.cardContainerHeader}>My Groups</h1>
                     <div className={styles.flexContainerRow}>
-                        <CardContainer results={myGroups}/>
+                        <CardContainer results={myGroups} />
                     </div>
 
                     <h1 className={styles.cardContainerHeader}>Search Groups</h1>
                     <div className={styles.searchBar}>
-                        <SearchBar />
+                        <SearchBar width="18" inputText="Search Groups"/>
 
 
                         <Toggle
@@ -151,13 +151,12 @@ export default function Home() {
                         />
                     </div>
                     <div className={styles.flexContainerRow}>
-                        <CardContainer results={groups}/>
+                        <CardContainer results={groups} />
                     </div>
                 </div>
-                <div className={styles.sidebarContainer}>
-                   
-                        <Chat/>
-                   
+                <div className="chat">
+                <Chat />
+
                 </div>
 
             </div>

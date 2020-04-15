@@ -8,7 +8,12 @@ export default function LoginModal(props) {
 
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
-    const handleFormSubmit = e => {
+    const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+    const [usernameValue, setUsernameValue] = useState("");
+
+
+
+    const handleLoginSubmit = e => {
         const user = {
             email: emailValue,
             password: passwordValue
@@ -21,20 +26,82 @@ export default function LoginModal(props) {
             .catch(e => console.log(e))
     }
 
-    return (
-        <div>
-            <div className={props.show ? styles.overlay : styles.hide} onClick={props.modalClose}></div>
-            <div className={props.show ? styles.loginModal : styles.hide}>
-                <h1 className={styles.loginModalHeader}>Login</h1>
-                <form onSubmit={handleFormSubmit}>
-                    <SearchBar inputText={"Email"} width="15" type="text" name="email" value={emailValue} onChange={e => setEmailValue(e.target.value)} />
-                    <SearchBar inputText={"Password"} width="15" type="password" name="password" value={passwordValue} onChange={e => setPasswordValue(e.target.value)} />
-                    <div className={styles.signInButton}>
-                        <Button variant="primary" buttonText="Login" />
+    const handleSignUpSubmit = e => {
+        if(passwordValue === confirmPasswordValue){
+            const user = {
+                username: usernameValue,
+                email: emailValue,
+                password: passwordValue
+            }
+            e.preventDefault();
+            axios.post("/users", user)
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(e => console.log(e))
+        } else {
+            console.log("passwords dont match")
+        }
+ 
+    }
+
+    const switchModal = () => {
+        props.setModalType(!props.modalType)
+    }
+
+    if (!props.modalType) {
+        return (
+            <div>
+                <div className={props.show ? styles.overlay : styles.hide} onClick={props.modalClose}></div>
+                <div className={props.show ? styles.loginModal : styles.hide}>
+                    <h1 className={styles.loginModalHeader}>Login</h1>
+                    <form onSubmit={handleLoginSubmit}>
+                        <SearchBar inputText={"Email"} width="15" type="text" name="email" value={emailValue} onChange={e => setEmailValue(e.target.value)} />
+                        <SearchBar inputText={"Password"} width="15" type="password" name="password" value={passwordValue} onChange={e => setPasswordValue(e.target.value)} />
+
+                    </form>
+                    <div className={styles.formButtons}>
+                        <div className={styles.signUpButton}>
+                            <Button variant="accent" buttonText="Sign Up" onClick={switchModal} />
+                        </div>
+
+                        <div className={styles.signInButton}>
+                            <Button variant="primary" buttonText="Login" onClick={handleLoginSubmit} />
+                        </div>
                     </div>
 
-                </form>
+
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div>
+                <div className={props.show ? styles.overlay : styles.hide} onClick={props.modalClose}></div>
+                <div className={props.show ? styles.signUpModal : styles.hide}>
+                    <h1 className={styles.loginModalHeader}>Sign Up</h1>
+                    <form onSubmit={handleLoginSubmit}>
+                        <SearchBar inputText={"Username"} width="15" type="text" name="username" value={usernameValue} onChange={e => setUsernameValue(e.target.value)} />
+                        <SearchBar inputText={"Email"} width="15" type="text" name="email" value={emailValue} onChange={e => setEmailValue(e.target.value)} />
+                        <SearchBar inputText={"Password"} width="15" type="password" name="password" value={passwordValue} onChange={e => setPasswordValue(e.target.value)} />
+                        <SearchBar inputText={"Confirm Password"} width="15" type="password" name="confirmPassword" value={confirmPasswordValue} onChange={e => setConfirmPasswordValue(e.target.value)} />
+                    </form>
+                    <div className={styles.formButtons}>
+                        <div className={styles.signUpButton}>
+                            <Button variant="accent" buttonText="Login" onClick={switchModal} />
+
+                        </div>
+
+                        <div className={styles.signInButton}>
+                            <Button variant="primary" buttonText="Sign Up" onClick={handleSignUpSubmit} />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        )
+    }
+
+
 }

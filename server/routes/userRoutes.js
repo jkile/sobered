@@ -21,7 +21,6 @@ router.post('/users', async (req, res) => {
 // User login
 router.post('/users/login', async (req, res) => {
     try {
-        console.log(req.body.password)
         const user = await User.findByCredentials(req.body.email, req.body.password)
         if(user){
         res.send(200)

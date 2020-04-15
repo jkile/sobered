@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
+const groupRoutes = require("./routes/groupRoutes");
 const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../");
 mongoose.connect("mongodb://localhost/sobered_db", { useNewUrlParser: true });
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(publicDirectoryPath));
 app.use(userRoutes);
+app.use(groupRoutes);
 const expressServer = app.listen(PORT, () => {
   console.log("server is listening on " + PORT);
 });
