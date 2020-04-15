@@ -4,10 +4,11 @@ const mongoose = require('mongoose')
 const groupSchema = new mongoose.Schema({
   members: Array,
   owner: String,
-  time: Date,
+  days: Array,
   location: String,
   name: String,
-  thumbnail: String
+  thumbnail: String,
+  tags: Array
 
 });
 
