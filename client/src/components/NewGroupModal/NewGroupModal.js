@@ -30,13 +30,47 @@ export default function NewGroupModal(props) {
     const [isBigBookChecked, setBigBookChecked] = useState(false);
     const [isMensWomensChecked, setMensWomensChecked] = useState(false);
 
-    const handleCheck = setter => e => {
+    const [checkboxesDay, setCheckboxesDay] = useState([]);
+    const [checkboxesTags, setCheckboxesTags] = useState([]);
+
+    const handleCheckDay = setter => e => {
         const value = e.target.checked;
+        if(value){
+            setCheckboxesDay([...checkboxesDay, e.target.value])
+        } else {
+            setCheckboxesDay(checkboxesDay.filter(item => item != e.target.value))
+        }
         setter(value);
+
+    }
+
+    const handleCheckTags = setter => e => {
+        const value = e.target.checked;
+        if(value){
+            setCheckboxesTags([...checkboxesTags, e.target.value])
+        } else {
+            setCheckboxesTags(checkboxesTags.filter(item => item != e.target.value))
+        }
+        setter(value);
+
     }
 
     const handleNewGroupSubmit = (e) => {
         e.preventDefault();
+        const group = {
+            name: groupNameValue,
+            time: groupTimeValue,
+            location: groupLocationValue,
+            description: groupDescriptionValue,
+            days: checkboxesDay,
+            tags: checkboxesTags
+        }
+
+        axios.post("/api/groups", group)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(e => console.log(e))
     }
 
     return (
@@ -54,24 +88,24 @@ export default function NewGroupModal(props) {
                     <SearchBar inputText=" Group Description" width="15" type="text" name="groupDescription" value={groupDescriptionValue} onChange={e => setGroupDescriptionValue(e.target.value)} />
                     <h1 className={styles.newGroupModalHeader}>Meeting Days</h1>
                     <div className={styles.tags}>
-                        <Checkbox checked={sundayCheck} onClick={handleCheck(setSundayChecked)} value="sun" text={<Tags text="Sun" />} />
-                        <Checkbox checked={mondayCheck} onClick={handleCheck(setMondayChecked)} value="mon" text={<Tags text="Mon" />} />
-                        <Checkbox checked={tuesdayCheck} onClick={handleCheck(setTuesdayChecked)} value="tues" text={<Tags text="Tues" />} />
-                        <Checkbox checked={wednesdayCheck} onClick={handleCheck(setWednesdayChecked)} value="wed" text={<Tags text="Wed" />} />
-                        <Checkbox checked={thursdayCheck} onClick={handleCheck(setThursdayChecked)} value="thurs" text={<Tags text="Thurs" />} />
-                        <Checkbox checked={fridayCheck} onClick={handleCheck(setFridayChecked)} value="fri" text={<Tags text="Fri" />} />
-                        <Checkbox checked={saturdayCheck} onClick={handleCheck(setSaturdayChecked)} value="sat" text={<Tags text="Sat" />} />
+                        <Checkbox checked={sundayCheck} onClick={handleCheckDay(setSundayChecked)} value="Sun" text={<Tags text="Sun" />} />
+                        <Checkbox checked={mondayCheck} onClick={handleCheckDay(setMondayChecked)} value="Mon" text={<Tags text="Mon" />} />
+                        <Checkbox checked={tuesdayCheck} onClick={handleCheckDay(setTuesdayChecked)} value="Tues" text={<Tags text="Tues" />} />
+                        <Checkbox checked={wednesdayCheck} onClick={handleCheckDay(setWednesdayChecked)} value="Wed" text={<Tags text="Wed" />} />
+                        <Checkbox checked={thursdayCheck} onClick={handleCheckDay(setThursdayChecked)} value="Thurs" text={<Tags text="Thurs" />} />
+                        <Checkbox checked={fridayCheck} onClick={handleCheckDay(setFridayChecked)} value="Fri" text={<Tags text="Fri" />} />
+                        <Checkbox checked={saturdayCheck} onClick={handleCheckDay(setSaturdayChecked)} value="Sat" text={<Tags text="Sat" />} />
                     </div>
                     <h1 className={styles.newGroupModalHeader}>Group Tags</h1>
                     <div className={styles.tags}>
-                        <Checkbox checked={isHAChecked} onClick={handleCheck(setHAChecked)} value='HA' text={<Tags text='HA' />} />
-                        <Checkbox checked={isAAChecked} onClick={handleCheck(setAAChecked)} value='AA' text={<Tags text='AA' />} />
-                        <Checkbox checked={isCMAChecked} onClick={handleCheck(setCMAChecked)} value='CMA' text={<Tags text='CMA' />} />
-                        <Checkbox checked={isNAChecked} onClick={handleCheck(setNAChecked)} value='NA' text={<Tags text='NA' />} />
-                        <Checkbox checked={isSpeakerChecked} onClick={handleCheck(setSpeakerChecked)} value='Speaker (Full)' text={<Tags text='Speaker (Full)' />} />
-                        <Checkbox checked={isHalfSpeakerChecked} onClick={handleCheck(setHalfSpeakerChecked)} value='Speaker (Half)' text={<Tags text='Speaker (Half)' />} />
-                        <Checkbox checked={isBigBookChecked} onClick={handleCheck(setBigBookChecked)} value='Big Book Study' text={<Tags text='Big Book Study' />} />
-                        <Checkbox checked={isMensWomensChecked} onClick={handleCheck(setMensWomensChecked)} value='Mens/Womens' text={<Tags text='Mens/Womens' />} />
+                        <Checkbox checked={isHAChecked} onClick={handleCheckTags(setHAChecked)} value='HA' text={<Tags text='HA' />} />
+                        <Checkbox checked={isAAChecked} onClick={handleCheckTags(setAAChecked)} value='AA' text={<Tags text='AA' />} />
+                        <Checkbox checked={isCMAChecked} onClick={handleCheckTags(setCMAChecked)} value='CMA' text={<Tags text='CMA' />} />
+                        <Checkbox checked={isNAChecked} onClick={handleCheckTags(setNAChecked)} value='NA' text={<Tags text='NA' />} />
+                        <Checkbox checked={isSpeakerChecked} onClick={handleCheckTags(setSpeakerChecked)} value='Speaker (Full)' text={<Tags text='Speaker (Full)' />} />
+                        <Checkbox checked={isHalfSpeakerChecked} onClick={handleCheckTags(setHalfSpeakerChecked)} value='Speaker (Half)' text={<Tags text='Speaker (Half)' />} />
+                        <Checkbox checked={isBigBookChecked} onClick={handleCheckTags(setBigBookChecked)} value='Big Book Study' text={<Tags text='Big Book Study' />} />
+                        <Checkbox checked={isMensWomensChecked} onClick={handleCheckTags(setMensWomensChecked)} value='Mens/Womens' text={<Tags text='Mens/Womens' />} />
                     </div>
                     <div className={styles.newGroupModalButton}>
                         <Button buttonText="Create" variant="accent" onClick={handleNewGroupSubmit} />

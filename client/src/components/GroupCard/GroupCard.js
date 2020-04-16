@@ -64,7 +64,7 @@ export default function GroupCard(props) {
         <>
             <div className={show ? styles.show : styles.card} ref={currentModal}>
 
-                <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.groupName}</h1>
+                <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.name}</h1>
                 <div className={show ? styles.modalDays : styles.daysContainer}>
                     {props.days.map(item => {
                         return <Tags text={item} />
