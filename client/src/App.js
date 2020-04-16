@@ -4,7 +4,8 @@ import "./App.scss";
 import Home from "./pages/Home/Home";
 import Index from "./pages/Index/Index";
 import Profile from "./pages/Profile/Profile";
-import withAuth from "./components/Auth/withAuth"
+import withAuth from "./components/Auth/withAuth";
+import UserContext from "./components/UserContext/UserContext";
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Index} />
-          <Route exact path="/home" component={withAuth(Home)} />
-          <Route exact path="/profile" component={withAuth(Profile)} />
+          <UserContext.Provider>
+            <Route exact path="/home" component={withAuth(Home)} />
+            <Route exact path="/profile" component={withAuth(Profile)} />
+          </UserContext.Provider>
         </Switch>
       </Router>
     </div>
