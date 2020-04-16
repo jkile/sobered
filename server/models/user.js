@@ -28,6 +28,16 @@ userSchema.statics.findByCredentials = async (email, password) => {
   return user
 }
 
+userSchema.methods.isCorrectPassword = function(password, callback){
+  bcrypt.compare(password, this.password, function(err, same) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(err, same);
+    }
+  });
+}
+
 // hashing plaintext password before saving to DB
 userSchema.pre('save', async function (next) {
   const user = this
