@@ -3,10 +3,13 @@
 .hero{
     height: 30rem;
     width: 100vw;
-    background-color: $secondary-color;
+    background-image: url('../../assets/plant.jpg');
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
+
 
 .heroHeader{
     font-size: 4rem;

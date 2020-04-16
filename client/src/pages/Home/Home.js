@@ -8,7 +8,7 @@ import CardContainer from "../../components/CardContainer/CardContainer";
 import styles from "./Home.module.scss";
 import Chat from "../../components/Chat/Chat";
 import NewGroupModal from "../../components/NewGroupModal/NewGroupModal";
-import CreateGroupButton from "../../components/CreateGroupButton/CreateGroupButton"
+
 import axios from "axios";
 
 export default function Home() {
