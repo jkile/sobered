@@ -5,12 +5,13 @@ const router = new express.Router();
 router.post("/api/groups", async (req, res) => {
     const group = new Group(
         {
-            members: req.body.members,
-            owner: req.body.owner,
+            name: req.body.name,
             time: req.body.time,
             location: req.body.location,
-            name: req.body.name,
-            thumbnail: req.body.thumbnail
+            description: req.body.description,
+            days: req.body.days,
+            tags: req.body.tags
+
         }
     )
 
@@ -23,7 +24,10 @@ router.post("/api/groups", async (req, res) => {
 })
 
 router.get("/api/groups/:search", async (req, res) => {
-
+    let searchParam = new RegExp(req.params.search, "i");
+    Group.find({$or: [{tags: searchParam}, {location: searchParam}, {days: searchParam}, {name: searchParam}, {description: searchParam}]})
+        .then(data => res.send(data))
+        .catch(e => res.send(e))
 })
 
 module.exports = router;

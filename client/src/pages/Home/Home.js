@@ -9,10 +9,13 @@ import styles from "./Home.module.scss";
 import Chat from "../../components/Chat/Chat";
 import NewGroupModal from "../../components/NewGroupModal/NewGroupModal";
 import CreateGroupButton from "../../components/CreateGroupButton/CreateGroupButton"
+import axios from "axios";
 
 export default function Home() {
     const [value, setValue] = useState(false);
     const [show, setShow] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const [searchGroups, setSearchGroups] = useState([]);
 
     function closeModal() {
         setShow(false);
@@ -23,117 +26,134 @@ export default function Home() {
 
     }
 
+    const handleSearchChange = e => {
+        e.preventDefault();
+        console.log("works")
+        setSearchValue(e.target.value);
+        if(e.target.value !== ""){
+            axios.get("/api/groups/" + searchValue)
+            .then(res => {
+                if(res.data){
+                    setSearchGroups(res.data);
+                }
+                console.log(res);
+            })
+            .catch(e => console.log(e))
+        }
+        
+    }
+
     const myGroups = [
         {
-            groupName: "HA Tempe",
+            name: "HA Tempe",
             days: ["Mon", "Wed", "Sat"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#HA"]
         },
         {
-            groupName: "AA Phoenix",
+            name: "AA Phoenix",
             days: ["Mon", "Tues", "Fri"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
             tags: ["#AA", "#JF"]
         },
         {
-            groupName: "Some Name",
+            name: "Some Name",
             days: ["Tues"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
         }
     ]
 
-    const groups = [
-        {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            groupName: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            groupName: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        }, {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            groupName: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            groupName: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        }, {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            groupName: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            groupName: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        },
-        {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            groupName: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            groupName: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        },
-        {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            groupName: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            groupName: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        }
-    ];
+    // const groups = [
+    //     {
+    //         name: "HA Tempe",
+    //         days: ["Mon", "Wed", "Sat"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#HA"]
+    //     },
+    //     {
+    //         name: "AA Phoenix",
+    //         days: ["Mon", "Tues", "Fri"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
+    //         tags: ["#AA", "#JF"]
+    //     },
+    //     {
+    //         name: "Some Name",
+    //         days: ["Tues"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+    //     }, {
+    //         name: "HA Tempe",
+    //         days: ["Mon", "Wed", "Sat"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#HA"]
+    //     },
+    //     {
+    //         name: "AA Phoenix",
+    //         days: ["Mon", "Tues", "Fri"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
+    //         tags: ["#AA", "#JF"]
+    //     },
+    //     {
+    //         name: "Some Name",
+    //         days: ["Tues"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+    //     }, {
+    //         name: "HA Tempe",
+    //         days: ["Mon", "Wed", "Sat"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#HA"]
+    //     },
+    //     {
+    //         name: "AA Phoenix",
+    //         days: ["Mon", "Tues", "Fri"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
+    //         tags: ["#AA", "#JF"]
+    //     },
+    //     {
+    //         name: "Some Name",
+    //         days: ["Tues"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+    //     },
+    //     {
+    //         name: "HA Tempe",
+    //         days: ["Mon", "Wed", "Sat"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#HA"]
+    //     },
+    //     {
+    //         name: "AA Phoenix",
+    //         days: ["Mon", "Tues", "Fri"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
+    //         tags: ["#AA", "#JF"]
+    //     },
+    //     {
+    //         name: "Some Name",
+    //         days: ["Tues"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+    //     },
+    //     {
+    //         name: "HA Tempe",
+    //         days: ["Mon", "Wed", "Sat"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#HA"]
+    //     },
+    //     {
+    //         name: "AA Phoenix",
+    //         days: ["Mon", "Tues", "Fri"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
+    //         tags: ["#AA", "#JF"]
+    //     },
+    //     {
+    //         name: "Some Name",
+    //         days: ["Tues"],
+    //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
+    //         tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
+    //     }
+    // ];
 
 
     return (
@@ -152,7 +172,7 @@ export default function Home() {
                     </div>
                     <h1 className={styles.cardContainerHeader}>Search Groups</h1>
                     <div className={styles.searchBar}>
-                        <SearchBar width="18" inputText="Search Groups" />
+                        <SearchBar width="18" inputText="Search Groups" type="text" name="search" value={searchValue} onChange={handleSearchChange}/>
 
 
                         <Toggle
@@ -162,7 +182,7 @@ export default function Home() {
                         />
                     </div>
                     <div className={styles.flexContainerRow}>
-                        <CardContainer results={groups} />
+                        <CardContainer results={searchGroups} />
                     </div>
                 </div>
                 <div className="chat">
