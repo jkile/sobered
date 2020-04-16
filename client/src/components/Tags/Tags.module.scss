@@ -2,7 +2,11 @@
 
 .tag{
     height: 1.2rem;
-    width: 3rem;
+    min-width: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    padding-right: .5rem;
+    padding-left: .5rem;
     background-color: $dark-color;
     // background: rgb(65,250,252);
     // background: linear-gradient(170deg, $light-color 0%, $accent-color 100%);

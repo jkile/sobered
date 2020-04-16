@@ -5,12 +5,12 @@ function Checkbox(props) {
  
 
   return (
-    <div>
+    <div className={styles.checkbox}>
       <label>
         <input
         type='checkbox'
           checked={props.setChecked}
-          onChange={props.onChange}
+          onClick={props.onClick}
           value={props.value}
         />
         <span>{props.text}</span>

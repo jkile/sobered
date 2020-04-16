@@ -7,10 +7,21 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import CardContainer from "../../components/CardContainer/CardContainer";
 import styles from "./Home.module.scss";
 import Chat from "../../components/Chat/Chat";
+import NewGroupModal from "../../components/NewGroupModal/NewGroupModal";
 import CreateGroupButton from "../../components/CreateGroupButton/CreateGroupButton"
 
 export default function Home() {
     const [value, setValue] = useState(false);
+    const [show, setShow] = useState(false);
+
+    function closeModal() {
+        setShow(false);
+    }
+
+    function openModal() {
+        setShow(true);
+
+    }
 
     const myGroups = [
         {
@@ -30,11 +41,6 @@ export default function Home() {
             days: ["Tues"],
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
             tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        }, {
-            groupName: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
         }
     ]
 
@@ -135,15 +141,18 @@ export default function Home() {
             <Nav />
             <div className={styles.container}>
                 <div className="leftView">
-                    <h1 className={styles.cardContainerHeader}>My Groups</h1>
-                    <CreateGroupButton/>
+                    <div className={styles.headerContainer}>
+                        <h1 className={styles.cardContainerHeader}>My Groups</h1>
+                        <div className={styles.createButton}>
+                            <Button variant="accent" buttonText="Create A Group" size='large' onClick={openModal} />
+                        </div>
+                    </div>
                     <div className={styles.flexContainerRow}>
                         <CardContainer results={myGroups} />
                     </div>
-
                     <h1 className={styles.cardContainerHeader}>Search Groups</h1>
                     <div className={styles.searchBar}>
-                        <SearchBar width="18" inputText="Search Groups"/>
+                        <SearchBar width="18" inputText="Search Groups" />
 
 
                         <Toggle
@@ -157,12 +166,12 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="chat">
-                <Chat />
+                    <Chat />
 
                 </div>
 
             </div>
-
+            <NewGroupModal show={show} modalClose={closeModal} />
         </div>
     );
 }

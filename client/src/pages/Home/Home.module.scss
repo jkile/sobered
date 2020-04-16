@@ -5,6 +5,14 @@
     margin: auto;
     display: flex;
 }
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 63rem;
+}
+.createButton{
+    align-self: center;
+}
 .flexContainerRow{
     display: flex;
     flex-direction: row;
