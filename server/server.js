@@ -12,15 +12,32 @@ const db = mongoose.connection;
 const PORT = 8000;
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
+const bodyParser = require('body-parser')
+const withAuth = require('./middleware/middleware')
+const secret = require('./middleware/secret')
+const cookieParser = require('cookie-parser')
 
+
+app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json())
 app.use(express.static(publicDirectoryPath));
 app.use(userRoutes);
 app.use(groupRoutes);
 const expressServer = app.listen(PORT, () => {
   console.log("server is listening on " + PORT);
 });
+
+app.get('/checkToken', withAuth, function(req, res) {
+  res.sendStatus(200);
+}
+)
 
 server.listen(80);
 

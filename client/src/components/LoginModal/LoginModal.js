@@ -22,6 +22,13 @@ export default function LoginModal(props) {
         axios.post("/users/login", user)
             .then(res => {
                 console.log(res)
+                if(res.data){
+                    res.send(200)
+               
+            }
+            else {
+                console.log("error")
+            }
             })
             .catch(e => console.log(e))
     }
@@ -34,7 +41,7 @@ export default function LoginModal(props) {
                 password: passwordValue
             }
             e.preventDefault();
-            axios.post("/users", user)
+            axios.post("/users/signup", user)
                 .then(res => {
                     console.log(res)
                 })
