@@ -1,58 +1,58 @@
 @import "variables";
-.groupFlex{
-    display: flex;
-    flex-direction: row;
-    align-content: flex-end;
-}
-.createGroupBtn{
-    background-color: $accent-color;
-    margin-right: 0 auto;
-}
+
 .hide{
-    visibility: hidden;
     opacity: 0;
     top: 0;
     margin-left: -11rem;
-    margin-top: -11rem;
-    
+    position: fixed;
 }
 
-.loginModal{
+.newGroupModal{
     opacity: 1;
     position: fixed;
     left: 50%;
     right: 50%;
-    margin-left: -10rem;
-    margin-top: -14rem;
-    height: 18rem;
+    top: 10rem;
+    margin-left: -9rem;
+    height: 49rem;
     width: 18rem;
     padding: .5rem;
     background-color: white;
     z-index: 5;
     border-radius: 5px;
     box-shadow: 1px 1px 12px rgb(94, 94, 94);
-    transition: .4s;
     display: flex;
     flex-direction: column;
+    transition: .4s;
     form{
         display: flex;
         flex-direction: column;
     }
 }
 
-.loginModalHeader{
+.newGroupModalHeader{
     font-family: $primary-font;
-    font-size: 2rem;
-    padding: 1rem;
-    padding-bottom: 2.5rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    margin-bottom: .75rem;
+    margin-top: .5rem;
 }
 
-.signInButton{
+.newGroupModalButton{
+    justify-self: flex-end;
     align-self: flex-end;
-    padding: 1rem;
-    padding-top: 1.75rem;
+    margin-top: .5rem;
+    margin-right: 1rem;
 }
 
+.tags{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 1rem;
+
+}
 .overlay{
     position: fixed;
     top: 0;

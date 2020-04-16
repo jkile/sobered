@@ -22,14 +22,14 @@ export default function GroupCard(props) {
                 height: "80vh",
                 width: "80vw",
                 duration: 150,
-                easing: 'easeInOutBounce'
+                easing: 'easeInOutExpo'
             })      
             anime({
                 targets: currentModal.current,
                 translateY:  currentHeight * .1 - currentPosition.top,
                 translateX: currentWidth * .1 - currentPosition.left,
                 duration: 150,
-                easing: 'easeInOutBounce'
+                easing: 'easeInOutExpo'
             })
             
         }, 20)

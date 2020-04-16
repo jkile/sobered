@@ -2,7 +2,7 @@ const express = require("express");
 const Group = require("../models/groups");
 const router = new express.Router();
 
-router.post("/api/groups/new", async (req, res) => {
+router.post("/api/groups", async (req, res) => {
     const group = new Group(
         {
             members: req.body.members,
@@ -22,7 +22,7 @@ router.post("/api/groups/new", async (req, res) => {
     }
 })
 
-router.get("/api/groups", async (req, res) => {
+router.get("/api/groups/:search", async (req, res) => {
 
 })
 
