@@ -30,7 +30,7 @@ function App() {
         <Switch>
           <UserContext.Provider value={userState}>
             <Route exact path="/" component={Index} />
-            <Route exact path="/home" component={withAuth(Home)} />
+            <Route path="/home" component={withAuth(Home)} />
             <Route exact path="/profile" component={withAuth(Profile)} />
           </UserContext.Provider>
         </Switch>

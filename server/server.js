@@ -51,7 +51,7 @@ io.on("connect", socket => {
   console.log("greetings");
   socket.on("sendmsg", msg => {
     console.log(msg);
-    io.emit("recMessage", msg.message);
+    io.emit("recMessage", msg);
   });
 });
 
