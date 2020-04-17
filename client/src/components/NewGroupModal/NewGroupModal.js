@@ -69,6 +69,7 @@ export default function NewGroupModal(props) {
         axios.post("/api/groups", group)
             .then(res => {
                 console.log(res)
+                props.modalClose();
             })
             .catch(e => console.log(e))
     }

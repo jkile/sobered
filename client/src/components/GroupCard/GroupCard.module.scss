@@ -119,6 +119,10 @@
     color: rgb(82, 82, 82);
     padding: .5rem;
     padding-top: 0rem;
+    height: 4.3rem;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
     grid-area: 3 / 1 / 4 / 4;
 }
 
@@ -127,6 +131,10 @@
     font-family: $secondary-font;
     color: rgb(82, 82, 82);
     padding: .5rem;
+    height: 4.3rem;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
     grid-area: 3 / 1 / 4 / 4;
 }
 
