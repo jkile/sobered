@@ -30,6 +30,7 @@ export default function LoginModal(props) {
                 if(res.data){
                     const defaultThumbnail = 'default'
                     userInfo.onLogin(res.data._id, res.data.username,defaultThumbnail, true)
+                    setResState(res)
                         // userId: "",
                         // username: '',
                         // thumbnail: '',

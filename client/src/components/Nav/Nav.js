@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { nav, flexEnd, flexItemStart } from "../Nav/Nav.module.scss";
+import UserContext from '../UserContext/UserContext'
 
 function Nav() {
+  const {username} = useContext(UserContext)
   return (
     <div className={nav}>
       <div className="flexitem">
@@ -9,8 +11,8 @@ function Nav() {
       </div>
       <div className={flexEnd}>
         <img src="https://www.placehold.it/45x45"></img>
-        <p>Hi, John Doe</p>
-        <a href="">Sign Out</a>
+        <p>Hi, {username}</p>
+        <a href="/">Sign Out</a>
       </div>
     </div>
   );
