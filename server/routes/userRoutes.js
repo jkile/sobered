@@ -30,7 +30,8 @@ router.post('/users/login', async (req, res) => {
               // expiresIn: '1h'
             });
             res.cookie('token', token, { httpOnly: true })
-              .sendStatus(200);
+              .json(user);
+             
           }
         });
 
@@ -41,7 +42,12 @@ router.post('/users/signup', async (req, res) => {
 
     try {
         await user.save()
-        res.send(200)
+        const payload =  req.body.email ;
+        const token = jwt.sign(payload, secret, {
+          // expiresIn: '1h'
+        });
+        res.cookie('token', token, { httpOnly: true })
+          .sendStatus(200);
 
     } catch (e) {
         res.status(400).send(e)

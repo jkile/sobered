@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import styles from "./LoginModal.module.scss";
 import axios from "axios";
+import {Redirect} from 'react-router-dom'
+import UserContext from "../UserContext/UserContext"
+
 
 export default function LoginModal(props) {
 
@@ -10,7 +13,9 @@ export default function LoginModal(props) {
     const [passwordValue, setPasswordValue] = useState("");
     const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
     const [usernameValue, setUsernameValue] = useState("");
+    const [resState, setResState] = useState("")
 
+    const context = useContext(UserContext)
 
 
     const handleLoginSubmit = e => {
@@ -23,7 +28,8 @@ export default function LoginModal(props) {
             .then(res => {
                 console.log(res)
                 if(res.data){
-                    res.send(200)
+                    console.log(context.getUserId(res.data._id))
+                   
                
             }
             else {
@@ -44,6 +50,7 @@ export default function LoginModal(props) {
             axios.post("/users/signup", user)
                 .then(res => {
                     console.log(res)
+                    setResState(res)
                 })
                 .catch(e => console.log(e))
         } else {
@@ -55,8 +62,8 @@ export default function LoginModal(props) {
     const switchModal = () => {
         props.setModalType(!props.modalType)
     }
-
-    if (!props.modalType) {
+    if (resState){return (<Redirect to="/home"/>)}
+    else if (!props.modalType) {
         return (
             <div>
                 <div className={props.show ? styles.overlay : styles.hide} onClick={props.modalClose}></div>
