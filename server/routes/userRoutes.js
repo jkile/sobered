@@ -37,7 +37,6 @@ router.post('/users/login', async (req, res) => {
 
 // Create new user
 router.post('/users/signup', async (req, res) => {
-    console.log(req)
     const user = new User({username: req.body.username, password: req.body.password, email: req.body.email})
 
     try {

@@ -20,7 +20,13 @@
     
     
 }
+.messageContainer{
+    align-self: flex-start;
+}
 
+.usermessageContainer{
+    align-self: flex-end;
+}
 .btn{
     margin-top: .5rem;
 }
@@ -30,6 +36,7 @@
     height: 35px;
 
 }
+
 
 .message{
 
@@ -43,6 +50,24 @@
     max-width: 14rem;
 }
 
+.usermessage{
+
+    background-color: $primary-color;
+    color: white;
+    padding: .75rem;
+    margin: .25rem;
+    border-radius: 10px;
+    align-self: flex-end;
+    word-wrap: break-word;
+    max-width: 14rem;
+}
+
+.username{
+    color: black;
+    position: relative;
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+}
 
 
 .chatContainer {
