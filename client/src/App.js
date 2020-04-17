@@ -8,12 +8,28 @@ import withAuth from "./components/Auth/withAuth";
 import UserContext from "./components/UserContext/UserContext";
 
 function App() {
+  const [userState, setUserState] = useState({
+    userId: "",
+    username: "",
+    thumbnail: "",
+    authenticated: false,
+    onLogin: (userId, username, thumbnail, authenticated) => {
+      setUserState({
+        ...userState,
+        userId,
+        username,
+        thumbnail,
+        authenticated,
+      });
+    },
+  });
+
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Index} />
-          <UserContext.Provider>
+          <UserContext.Provider value={userState}>
+            <Route exact path="/" component={Index} />
             <Route exact path="/home" component={withAuth(Home)} />
             <Route exact path="/profile" component={withAuth(Profile)} />
           </UserContext.Provider>
