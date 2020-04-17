@@ -46,7 +46,7 @@
 
 
 .chatContainer {
-    height: 50rem;
+    height: 40rem;
     width: 20rem;
     padding: 1rem;
     margin: 1rem;
@@ -59,7 +59,12 @@
     font-family: $secondary-font;
     align-items: center;
     overflow: auto;
-
+    @media (min-width: 768px){
+        height: 40rem;
+    }
+    @media(min-width: 1440px){
+        height: 52.75rem;
+    }
 }
 
 .chatHeader{
