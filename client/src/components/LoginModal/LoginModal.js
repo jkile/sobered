@@ -14,8 +14,8 @@ export default function LoginModal(props) {
     const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
     const [usernameValue, setUsernameValue] = useState("");
     const [resState, setResState] = useState("")
-
-    const context = useContext(UserContext)
+ 
+    const userInfo = useContext(UserContext)
 
 
     const handleLoginSubmit = e => {
@@ -26,10 +26,14 @@ export default function LoginModal(props) {
         e.preventDefault();
         axios.post("/users/login", user)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 if(res.data){
-                    console.log(context.getUserId(res.data._id))
-                   
+                    const defaultThumbnail = 'default'
+                    userInfo.onLogin(res.data._id, res.data.username,defaultThumbnail, true)
+                        // userId: "",
+                        // username: '',
+                        // thumbnail: '',
+                        // authenticated: false
                
             }
             else {
