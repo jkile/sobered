@@ -157,6 +157,12 @@
     padding: .25rem;
 }
 
+.closeButton{
+    margin: .5rem;
+    grid-area: 4 / 3 / 5 / 4;
+    align-self: end;
+    justify-self: end;
+}
 .joinButton{
     margin: .5rem;
     grid-area: 4 / 3 / 5 / 4;

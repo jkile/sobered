@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import ReactDOM from "react-dom";
 import styles from "./GroupCard.module.scss";
 import Button from "../Button/Button";
 import Tags from "../Tags/Tags";
 import anime from 'animejs';
+import axios from "axios";
+import UserContext from "../UserContext/UserContext"
 
 export default function GroupCard(props) {
 
     const currentModal = useRef(null);
-
+    const {userId} = useContext(UserContext);
     const [show, setShow] = useState(false);
     const openModal = () => {
   
@@ -59,6 +61,15 @@ export default function GroupCard(props) {
 
     }
 
+    const handleJoin = () => {
+        console.log(props._id);
+        console.log(userId)
+        axios.put(`/api/groups/${props._id}/${userId}`)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(e => console.log(e));
+    }
 
     return (
         <>
@@ -76,9 +87,10 @@ export default function GroupCard(props) {
                         return <Tags text={item} />
                     })}
                 </div>
-                <div className={show ? styles.modalButton : styles.joinButton}>
+                <div className={show ? styles.modalButton : styles.closeButton}>
 
                     {show ? <Button buttonText="Close" onClick={closeModal} variant="accent"/> : <Button buttonText="View" onClick={openModal}/>}
+                    {show && <div className={styles.joinButton} ><Button buttonText="Join" onClick={handleJoin} /></div>}
                 </div>
             </div>
             <div className={show ? styles.card : styles.none}></div>

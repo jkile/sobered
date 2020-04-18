@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Toggle from "../../components/Toggle/Toggle";
 import Nav from "../../components/Nav/Nav";
@@ -10,6 +10,7 @@ import Chat from "../../components/Chat/Chat";
 import NewGroupModal from "../../components/NewGroupModal/NewGroupModal";
 import axios from "axios";
 import { useMediaQuery } from 'react-responsive';
+import UserContext from "../../components/UserContext/UserContext";
 import chatIcon from "../../assets/chat_bubble_outline-black-18dp.svg";
 
 export default function Home() {
@@ -19,6 +20,8 @@ export default function Home() {
     const [searchGroups, setSearchGroups] = useState([]);
     const [showChat, setShowChat] = useState(false);
     const isFullScreen = useMediaQuery({query: "(min-width: 90rem)"});
+    const {userId} = useContext(UserContext);
+    const [myGroups, setMyGroups] = useState([]);
 
     function closeModal() {
         setShow(false);
@@ -31,15 +34,13 @@ export default function Home() {
 
     const handleSearchChange = e => {
         e.preventDefault();
-        console.log("works")
         setSearchValue(e.target.value);
         if(e.target.value !== ""){
-            axios.get("/api/groups/" + searchValue)
+            axios.get("/api/groups/search/" + searchValue)
             .then(res => {
                 if(res.data){
                     setSearchGroups(res.data);
                 }
-                console.log(res);
             })
             .catch(e => console.log(e))
         } else {
@@ -48,26 +49,17 @@ export default function Home() {
         
     }
 
-    const myGroups = [
-        {
-            name: "HA Tempe",
-            days: ["Mon", "Wed", "Sat"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#HA"]
-        },
-        {
-            name: "AA Phoenix",
-            days: ["Mon", "Tues", "Fri"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellat.",
-            tags: ["#AA", "#JF"]
-        },
-        {
-            name: "Some Name",
-            days: ["Tues"],
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id totam! Est repellendus voluptate doloribus! Ea maxime quos eligendi praesentium.",
-            tags: ["#AA", "#HA", "#BO", "#LA", "#FJ"]
-        }
-    ]
+    useEffect(() => {
+        axios.get("/api/groups/" + userId)
+        .then(res => {
+            if(res.data) {
+                setMyGroups(res.data);
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }, [])
 
     return (
         <div>
