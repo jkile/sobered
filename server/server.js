@@ -38,7 +38,7 @@ app.get('/checkToken', withAuth, function(req, res) {
   res.sendStatus(200);
 }
 )
-const socketport = (process.env.PORT + 1)
+const socketport = (toString(parseInt(process.env.PORT) + 1))
 server.listen(socketport || 80);
 
 db.on("error", console.error.bind(console, "connection error:"));
