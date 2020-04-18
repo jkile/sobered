@@ -92,7 +92,7 @@ export default function GroupCard(props) {
 
     return (
         <>
-            <div className={show ? styles.show : styles.card} ref={currentModal}>
+            <div className={`${show ? styles.show : styles.card} ${props.darkMode ? styles.darkModeBackground : {}}`} ref={currentModal}>
 
                 <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.name}</h1>
                 <div className={show ? styles.modalDays : styles.daysContainer}>
@@ -104,13 +104,13 @@ export default function GroupCard(props) {
                     {modalContent && <h1 className={styles.modalDescriptionHeader}>Description</h1>}
                     <p className={show ? styles.modalDescription : styles.description}>{props.description}</p>
                     {modalContent && <h1 className={styles.locationHeader}>Location</h1>}
-                    {modalContent && <span className={styles.location}>{props.location}</span>}
+                    {modalContent && <p className={styles.location}>{props.location}</p>}
 
                 </div>
                 {modalContent &&
                 <div className={styles.timeContainer}>
                         {modalContent && <h1 className={styles.timeHeader}>Meeting Time</h1>}
-                        {modalContent && <span className={styles.time}>{props.time}</span>}
+                        {modalContent && <p className={styles.time}>{props.time}</p>}
                 </div>
                 }
                 <div className={show ? styles.modalTags : styles.tagsContainer}>
@@ -124,7 +124,7 @@ export default function GroupCard(props) {
 
                 </div>
             </div>
-            <div className={show ? styles.card : styles.none}></div>
+            <div className={`${show ? styles.card : styles.none} ${props.darkMode ? styles.darkModeBackground : {}}`}></div>
             <div className={show ? styles.overlay : styles.hide} onClick={closeModal}></div>
         </>
     )

@@ -6,9 +6,9 @@ import styles from "./CardContainer.module.scss";
 export default function CardContainer(props) {
 
     return (
-        <div className={styles.cardContainer}>
+        <div className={props.darkMode ? styles.darkModeCardContainer : styles.cardContainer}>
             {props.results.map((item, i )=> {
-                return <div><GroupCard {...item} index={i}/></div>
+                return <div><GroupCard {...item} index={i} darkMode={props.darkMode}/></div>
             })}
         </div>
     )
