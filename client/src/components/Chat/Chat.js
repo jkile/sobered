@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import styles from "./Chat.module.scss";
 import UserContext from "../UserContext/UserContext";
-const socket = io.connect("http://localhost");
+const socket = io.connect(toString(parseInt(process.env.PORT) + 1));
 
 function Chat(props) {
   const [socketState, openSocket] = useState(0);
