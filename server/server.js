@@ -9,7 +9,7 @@ const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../client/build");
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://danebow:kichu3263@ds261077.mlab.com:61077/heroku_v213k4dq")
 const db = mongoose.connection;
-const PORT = process.env.MONGODB_URI || 8000;
+const PORT = process.env.PORT || 8000;
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const bodyParser = require('body-parser')
