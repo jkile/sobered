@@ -9,7 +9,7 @@ const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../");
 mongoose.connect("mongodb://localhost/sobered_db", { useNewUrlParser: true });
 const db = mongoose.connection;
-const PORT = 8000;
+const PORT = process.env.MONGODB_URI || 8000;
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const bodyParser = require('body-parser')
