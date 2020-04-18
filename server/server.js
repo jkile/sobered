@@ -39,7 +39,7 @@ app.get('/checkToken', withAuth, function(req, res) {
 }
 )
 
-server.listen(80);
+server.listen(process.env.PORT || 80);
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
