@@ -10,7 +10,9 @@ router.post("/api/groups", async (req, res) => {
             location: req.body.location,
             description: req.body.description,
             days: req.body.days,
-            tags: req.body.tags
+            tags: req.body.tags,
+            owner: req.body.owner,
+            members: req.body.owner
         }
     )
     try{
@@ -29,7 +31,6 @@ router.get("/api/groups/search/:search", async (req, res) => {
 })
 
 router.get("/api/groups/:id", async (req, res) => {
-    console.log(req.params.id)
     Group.find({members: req.params.id})
         .then(data => res.send(data))
         .catch(e => res.send(e));

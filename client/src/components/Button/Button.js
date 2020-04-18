@@ -4,7 +4,7 @@ import styles from "./Button.module.scss";
 function Button(props){
 
     return(
-        <button 
+        <button disabled={props.disabled}
         className={`${styles.btn}
         ${props.variant === "accent" ? styles.btnAccent : styles.btnPrimary}
         ${props.size === "large" ? styles.btnLarge : styles.btn}`}
