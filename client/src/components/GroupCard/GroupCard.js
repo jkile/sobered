@@ -23,8 +23,8 @@ export default function GroupCard(props) {
         size = 60;
         multiplier = .2;
     } else {
-        size = 80;
-        multiplier = .1;
+        size = 90;
+        multiplier = .08;
     }
 
     const openModal = () => {
