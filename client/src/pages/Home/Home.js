@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Button from "../../components/Button/Button";
-import Toggle from "../../components/Toggle/Toggle.js";
+import Toggle from "../../components/toggle/toggle.js";
 import Nav from "../../components/Nav/Nav";
 import SearchBar from "../../components/SearchBar/SearchBar"
 import Sidebar from "../../components/Sidebar/Sidebar"
