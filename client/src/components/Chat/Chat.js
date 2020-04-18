@@ -48,9 +48,9 @@ function Chat(props) {
 
   return (
     <div className={styles.chat}>
-      <h1 className={styles.chatHeader}>Chat</h1>
-      <div className={styles.chatContainer}>
-        <div className={styles.chatBox}>
+      <h1 className={props.darkMode ? styles.darkModeHeader : styles.chatHeader}>Chat</h1>
+      <div className={props.darkMode ? styles.darkModeChatContainer : styles.chatContainer}>
+        <div className={props.darkMode ? styles.darkModeChatBox : styles.chatBox}>
           <ol>
             {liToRender.map((item) => (
               <div className={item.username == user.username ? styles.usermessageContainer : styles.messageContainer}>
@@ -77,6 +77,7 @@ function Chat(props) {
             name="message"
             value={formVal}
             onChange={(e) => setVal(e.target.value)}
+            darkMode={props.darkMode}
           />
           <div className={styles.btn}>
             <Button onClick={(e) => handleButtonSubmit(e)} buttonText="Send" />

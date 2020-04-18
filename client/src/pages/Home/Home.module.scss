@@ -1,7 +1,19 @@
 @import "variables";
 
+.darkerModeBackground{
+    background-color: $background-color-darker;
+}
+
+.darkModeHeader{
+    color: $text-color-light;
+    margin: 1rem;
+    font-size: 3rem;
+    font-family: $primary-font;
+}
+
 .container{ 
     max-width: 90rem;
+    padding-bottom: .8rem;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -11,9 +23,16 @@
 }
 .headerContainer{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
+    @media (min-width: 768px){
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
 }
 .createButton{
+    margin-left: 1rem;
     margin-right: 1.1rem;
     align-self: center;
 }
@@ -75,5 +94,15 @@
     border-radius: 5px;
     h1{
         color: white;
+    }
+}
+
+.toggle{
+    justify-self: center;
+    align-self: center;
+    margin-right: 3rem;
+    margin-top: -.5rem;
+    @media (min-width: 768px) {
+        margin-left: 30rem;
     }
 }

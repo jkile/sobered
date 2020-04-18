@@ -75,6 +75,7 @@ export default function NewGroupModal(props) {
             .then(res => {
                 console.log(res)
                 props.modalClose();
+                props.groupRerender();
             })
             .catch(e => console.log(e))
     }

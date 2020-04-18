@@ -25,19 +25,38 @@
     ol{
         display: flex;
         flex-direction: column;
-    }
-    
-    
+    }  
+}
+
+.darkModeChatBox {
+    width: 90%;
+    height: 90%;
+    background-color: $background-color-dark;
+    border-radius: 5px;
+    padding: 1rem;
+    font-family: $primary-font;
+    font-size: 1rem;
+    overflow: auto;
+    ol{
+        display: flex;
+        flex-direction: column;
+    }  
 }
 .messageContainer{
     
     align-self: flex-start;
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
     animation-name: fade;
     animation-duration: .3s;
 }
 
 .usermessageContainer{
     align-self: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    display: flex;
     animation-name: fade;
     animation-duration: .3s;
 }
@@ -106,11 +125,40 @@
     }
 }
 
+.darkModeChatContainer{
+    height: 40rem;
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    background-color: $background-color-dark;
+    box-shadow: inset 0 0 10px $background-color-darker;
+    display: flex;
+    flex-direction: column;
+    font-family: $secondary-font;
+    align-items: center;
+    overflow: auto;
+    @media (min-width: 768px){
+        height: 40rem;
+    }
+    @media(min-width: 1440px){
+        height: 52.75rem;
+    }
+}
+
 .chatHeader{
     font-size: 3rem;
     margin: 1rem;
     font-family: $primary-font;
     color: rgb(66, 66, 66);
+}
+
+.darkModeHeader{
+    font-size: 3rem;
+    margin: 1rem;
+    font-family: $primary-font;
+    color: $text-color-light;
 }
 
 .inputContainer {
