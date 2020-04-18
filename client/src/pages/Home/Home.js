@@ -71,7 +71,7 @@ export default function Home() {
             .catch(e => {
                 console.log(e)
             })
-    }, [])
+    }, [myGroups])
 
     return (
         <div className={darkMode && styles.darkerModeBackground}>

@@ -47,10 +47,8 @@ db.once("open", function() {
 });
 
 io.on("connect", socket => {
-  console.log(socket.id);
-  console.log("greetings");
+
   socket.on("sendmsg", msg => {
-    console.log(msg);
     io.emit("recMessage", msg);
   });
 });
