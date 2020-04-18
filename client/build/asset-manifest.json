@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d8bfb29e.chunk.css",
+    "main.js": "/static/js/main.c84b0d6c.chunk.js",
+    "main.js.map": "/static/js/main.c84b0d6c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.784c586e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.784c586e.js.map",
+    "static/js/2.389c15a1.chunk.js": "/static/js/2.389c15a1.chunk.js",
+    "static/js/2.389c15a1.chunk.js.map": "/static/js/2.389c15a1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d7e622ea89655214e1a11e1561d2ddfd.js": "/precache-manifest.d7e622ea89655214e1a11e1561d2ddfd.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.d8bfb29e.chunk.css.map": "/static/css/main.d8bfb29e.chunk.css.map",
+    "static/js/2.389c15a1.chunk.js.LICENSE.txt": "/static/js/2.389c15a1.chunk.js.LICENSE.txt",
+    "static/media/chat_bubble_outline-black-18dp.svg": "/static/media/chat_bubble_outline-black-18dp.c56d3dfc.svg",
+    "static/media/Hero.module.scss": "/static/media/plant.d2bf8fd4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.784c586e.js",
+    "static/js/2.389c15a1.chunk.js",
+    "static/css/main.d8bfb29e.chunk.css",
+    "static/js/main.c84b0d6c.chunk.js"
+  ]
+}
