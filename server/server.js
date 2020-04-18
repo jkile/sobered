@@ -7,7 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../client/build");
-mongoose.connect(process.env.MONGODB_URI ||"mongodb://<danebow>:<kichu3263>@ds261077.mlab.com:61077/heroku_v213k4dq", "mongodb://localhost/sobered_db", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://<danebow>:<kichu3263>@ds261077.mlab.com:61077/heroku_v213k4dq")
 const db = mongoose.connection;
 const PORT = process.env.MONGODB_URI || 8000;
 const server = require("http").Server(app);
