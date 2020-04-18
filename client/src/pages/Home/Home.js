@@ -77,7 +77,7 @@ export default function Home() {
         <div className={darkMode && styles.darkerModeBackground}>
             <Nav />
             <div className={styles.container}>
-                <div className="leftView">
+                <div className={styles.leftView}>
                     <div className={styles.headerContainer}>
                         <h1 className={darkMode ? styles.darkModeHeader : styles.cardContainerHeader}>My Groups</h1>
                         <div className={styles.toggle}>
@@ -102,11 +102,11 @@ export default function Home() {
                     <div className={styles.flexContainerRow}>
                         <CardContainer results={searchGroups} darkMode={darkMode} />
                     </div>
-                    {!isFullScreen && <div className={styles.chatIconBackground} onClick={() => setShowChat(!showChat)}><img src={chatIcon} className={styles.chatIcon}></img></div>}
+                    {!isFullScreen && <div className={showChat ? styles.toggleUp : styles.chatIconBackground} onClick={() => setShowChat(!showChat)}><img src={chatIcon} className={`${styles.chatIcon}`}></img></div>}
                 </div>
 
                 {isFullScreen && <div className="chat"><Chat darkMode={darkMode} /></div>}
-                {showChat ? <div className={styles.floatingChat}><Chat /></div> : <> </>}
+                {showChat ? <div><div className={darkMode ? styles.darkModeFloatingChat : styles.floatingChat }><Chat darkMode={darkMode} /></div><div className={styles.overlay} onClick={(e) => {setShowChat(false)}}></div></div> : <> </>}
 
             </div>
             <NewGroupModal show={show} modalClose={closeModal} groupRerender={groupRerender} />

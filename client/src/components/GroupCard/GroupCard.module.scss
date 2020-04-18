@@ -10,6 +10,7 @@
     height: 18rem;
     width: 18rem;
     border: 1px white;
+    background-color: white;
     box-shadow: 3px 2px 6px 2px lightgray;
     border-radius: 5px;
     margin: .5rem;
@@ -30,7 +31,9 @@
         color: $text-color-light;
     }
 }
-
+.lightBackground{
+    background-color: white;
+}
 .show{
     height: 18rem;
     width: 18rem;
