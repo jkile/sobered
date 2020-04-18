@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from "../Button/Button";
 import styles from "./NewGroupModal.module.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import Checkbox from "../Checkbox/Checkbox";
 import Tags from "../Tags/Tags";
 import axios from "axios";
+import UserContext from "../../components/UserContext/UserContext";
 
 export default function NewGroupModal(props) {
 
@@ -32,6 +33,8 @@ export default function NewGroupModal(props) {
 
     const [checkboxesDay, setCheckboxesDay] = useState([]);
     const [checkboxesTags, setCheckboxesTags] = useState([]);
+
+    const {userId} = useContext(UserContext);
 
     const handleCheckDay = setter => e => {
         const value = e.target.checked;
@@ -63,7 +66,9 @@ export default function NewGroupModal(props) {
             location: groupLocationValue,
             description: groupDescriptionValue,
             days: checkboxesDay,
-            tags: checkboxesTags
+            tags: checkboxesTags,
+            owner: userId,
+            members: userId
         }
 
         axios.post("/api/groups", group)

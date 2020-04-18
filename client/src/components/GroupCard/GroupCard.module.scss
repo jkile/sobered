@@ -34,7 +34,7 @@
     margin: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: .6fr .2fr 1fr 1fr 1fr;
+    grid-template-rows: .4fr .2fr 1fr 1fr 1fr;
     @media(min-width: 1024px){
         
     }
@@ -123,9 +123,14 @@
     white-space: pre-line;
     overflow: hidden;
     text-overflow: ellipsis;
+   
+}
+.descriptionContainer{
     grid-area: 3 / 1 / 4 / 4;
 }
-
+.modalDescriptionContainer{
+    grid-area: 3 / 1 / 4 / 3;
+}
 .modalDescription{
     font-size: 1rem;
     font-family: $secondary-font;
@@ -135,7 +140,6 @@
     white-space: pre-line;
     overflow: hidden;
     text-overflow: ellipsis;
-    grid-area: 3 / 1 / 4 / 4;
 }
 
 
@@ -163,16 +167,69 @@
     align-self: end;
     justify-self: end;
 }
-.joinButton{
-    margin: .5rem;
-    grid-area: 4 / 3 / 5 / 4;
-    align-self: end;
-    justify-self: end;
-}
+
 
 .modalButton{
     margin: .5rem;
     grid-area: 5 / 3 / 6 / 4;
     align-self: end;
     justify-self: end;
+    display: flex;
+}
+.joinButton{    
+    margin-right: 1rem;
+    animation-name: fade;
+    animation-duration: .3s;
+}
+
+@keyframes fade {
+    0%{
+       opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.modalDescriptionHeader{
+    font-family: $primary-font;
+    color: rgb(82, 82, 82);
+    font-size: 2rem;
+    margin: .5rem;
+    animation-name: fade;
+    animation-duration: .3s;
+
+}
+
+.locationHeader{
+    font-family: $primary-font;
+    color: rgb(82, 82, 82);
+    font-size: 2rem;
+    margin: .5rem;
+    animation-name: fade;
+    animation-duration: .3s;
+}
+.location{
+    font-family: $secondary-font;
+    color: rgb(82, 82, 82);
+    margin: .5rem;
+    font-size: 1rem;
+}
+.timeContainer{
+    margin-top: 3rem;
+    grid-area: 4 / 1 / 5 / 2;
+}
+.timeHeader{
+    font-family: $primary-font;
+    color: rgb(82, 82, 82);
+    font-size: 2rem;
+    margin: .5rem;
+    animation-name: fade;
+    animation-duration: .3s;
+}
+.time{
+    font-family: $secondary-font;
+    color: rgb(82, 82, 82);
+    margin: .5rem;
+    font-size: 1rem;
 }

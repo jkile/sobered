@@ -13,6 +13,8 @@
     transition: background 0.8s;
 }
 
+
+
 .btnLarge{
     height: 3.25rem;
     width: 8rem;
@@ -46,4 +48,9 @@
     background-color: $primary-color;
     background-size: 100%;
     transition: background 0s;
+}
+
+.btn:disabled{
+    background-color: $light-color;
+    cursor: not-allowed;
 }

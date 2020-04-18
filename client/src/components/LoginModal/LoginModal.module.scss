@@ -86,3 +86,41 @@
     background-color: black;
     display: flex;
 }
+.incorrectPass{
+    color: $accent-color;
+    margin-top: 12.5rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    position: fixed;
+    font-family: $primary-font;
+    animation-name: shake;
+    animation-duration: .3s;
+}
+
+.passValues{
+    position: fixed;
+    margin-top: 20rem;
+    color: $accent-color;
+    margin-left: 1rem;
+    font-family: $primary-font;
+    animation-name: shake;
+    animation-duration: .3s;
+}
+
+@keyframes shake {
+    0%{
+        transform: translateX(4px);
+    }
+    25%{
+        transform: translateX(-4px);
+    }
+    50%{
+        transform: translateX(4px);
+    }
+    75%{
+        transform: translateX(-4px);
+    }
+    100%{
+        transform: translateX(4px);
+    }
+}

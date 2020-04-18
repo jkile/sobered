@@ -6,6 +6,7 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import UserContext from "../UserContext/UserContext";
 
+
 export default function LoginModal(props) {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -13,6 +14,7 @@ export default function LoginModal(props) {
   const [usernameValue, setUsernameValue] = useState("");
   const [resState, setResState] = useState("");
   const [resSignState, setResSignState] = useState("");
+  const [incorrectPass, setIncorrectPass] = useState(false);
 
   const userInfo = useContext(UserContext);
 
@@ -25,7 +27,7 @@ export default function LoginModal(props) {
     axios
       .post("/users/login", user)
       .then((res) => {
-        console.log(res.data);
+        setIncorrectPass(false);
         if (res.data) {
           const defaultThumbnail = "default";
           userInfo.onLogin(
@@ -39,7 +41,7 @@ export default function LoginModal(props) {
           console.log("error");
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => setIncorrectPass(true));
   };
 
   const handleSignUpSubmit = (e) => {
@@ -62,6 +64,18 @@ export default function LoginModal(props) {
       console.log("passwords dont match");
     }
   };
+
+  const handleUsername = (e) => {
+    setUsernameValue(e.target.value)
+  }
+
+
+  const handleConfirmPassword =  e => { 
+    setConfirmPasswordValue(e.target.value)   
+
+  }
+
+
 
   const switchModal = () => {
     props.setModalType(!props.modalType);
@@ -97,6 +111,7 @@ export default function LoginModal(props) {
               onChange={(e) => setPasswordValue(e.target.value)}
             />
           </form>
+          {incorrectPass && <div className={styles.incorrectPass}>Incorrect email or password</div>}
           <div className={styles.formButtons}>
             <div className={styles.signUpButton}>
               <Button
@@ -133,7 +148,7 @@ export default function LoginModal(props) {
               type="text"
               name="username"
               value={usernameValue}
-              onChange={(e) => setUsernameValue(e.target.value)}
+              onChange={handleUsername}
             />
             <SearchBar
               inputText={"Email"}
@@ -157,9 +172,10 @@ export default function LoginModal(props) {
               type="password"
               name="confirmPassword"
               value={confirmPasswordValue}
-              onChange={(e) => setConfirmPasswordValue(e.target.value)}
+              onChange={handleConfirmPassword}
             />
           </form>
+          {confirmPasswordValue !== passwordValue && <div className={styles.passValues} >Password values do not match </div>}
           <div className={styles.formButtons}>
             <div className={styles.signUpButton}>
               <Button
@@ -174,6 +190,7 @@ export default function LoginModal(props) {
                 variant="primary"
                 buttonText="Sign Up"
                 onClick={handleSignUpSubmit}
+                disabled={confirmPasswordValue !== passwordValue}
               />
             </div>
           </div>
