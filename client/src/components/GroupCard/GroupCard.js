@@ -92,7 +92,7 @@ export default function GroupCard(props) {
 
     return (
         <>
-            <div className={`${show ? styles.show : styles.card} ${props.darkMode ? styles.darkModeBackground : {}}`} ref={currentModal}>
+            <div className={`${show ? styles.show : styles.card} ${props.darkMode ? styles.darkModeBackground : styles.lightBackground}`} ref={currentModal}>
 
                 <h1 className={show ? styles.modalHeader : styles.cardHeader}>{props.name}</h1>
                 <div className={show ? styles.modalDays : styles.daysContainer}>

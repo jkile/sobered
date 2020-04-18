@@ -56,14 +56,15 @@
     align-content: center;
 }
 .chatIconBackground{
+    transition: .4s;
     position: fixed;
     top: 85vh;
     left: 75vw;
     z-index: 6;
     padding: 1rem;
     background-color: $dark-color;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -73,10 +74,32 @@
         left: 90vw
     }
 }
-.chatIcon{
-    margin-top: .5rem;
+
+.toggleUp{
+    transition: .4s;
+    position: fixed;
+    top: 10vh;
+    left: 75vw;
+    z-index: 6;
+    padding: 1rem;
+    background-color: $dark-color;
     height: 2.5rem;
     width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 100px;
+    cursor: pointer;
+    @media (min-width: 768px){
+        left: 90vw
+    }
+}
+
+
+.chatIcon{
+    margin-top: .5rem;
+    height: 1.5rem;
+    width: 1.5rem;
     filter: invert(100%) drop-shadow(2px 2px 4px rgb(41, 41, 41));
 
 }
@@ -85,12 +108,32 @@
     position: fixed;
     padding: 1rem;
     background-color: $primary-color;
+    box-shadow: 3px 2px 8px 2px rgb(136, 136, 136);
     right: 50%;
     left: 50%;
     margin-left: -13rem;
     top: 10vh;
     height: 50rem;
     width: 24rem;
+    z-index: 5;
+    border-radius: 5px;
+    h1{
+        color: white;
+    }
+}
+
+.darkModeFloatingChat{
+    position: fixed;
+    padding: 1rem;
+    background-color: $background-color-darker;
+    box-shadow: 3px 2px 6px 2px $background-color-darker;
+    right: 50%;
+    left: 50%;
+    margin-left: -13rem;
+    top: 10vh;
+    height: 50rem;
+    width: 24rem;
+    z-index: 5;
     border-radius: 5px;
     h1{
         color: white;
@@ -105,4 +148,19 @@
     @media (min-width: 768px) {
         margin-left: 30rem;
     }
+}
+
+.leftView{
+    max-width: 100vw;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+    opacity: .5;
+    background-color: black;
 }
