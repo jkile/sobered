@@ -7,11 +7,11 @@ const userRoutes = require("./routes/userRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../client/build");
-mongoose.connect(process.env.MONGODB_URI ||"mongodb://danebow:kichu3263@ds261077.mlab.com:61077/heroku_v213k4dq")
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://danebow:kichu3263@ds261077.mlab.com:61077/heroku_v213k4dq" || "//localhost.")
 const db = mongoose.connection;
 const PORT = process.env.PORT || 8000;
 const server = require("http").Server(app);
-const io = require("socket.io")(server);
+const socketIO = require("socket.io");
 const bodyParser = require('body-parser')
 const withAuth = require('./middleware/middleware')
 const secret = require('./middleware/secret')
@@ -38,8 +38,10 @@ app.get('/checkToken', withAuth, function(req, res) {
   res.sendStatus(200);
 }
 )
-const socketport = (toString(parseInt(process.env.PORT) + 1))
-server.listen(socketport || 80);
+
+const io = socketIO(expressServer)
+// const socketport = (toString(parseInt(process.env.PORT) + 1))
+// server.listen(process.env.PORT || 80);
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
