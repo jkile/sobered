@@ -20,20 +20,7 @@
     transition: .5s;
   
 }
-.darkModeBackground{
-    background-color: $background-color-dark;
-    box-shadow: 3px 2px 6px 2px $background-color-darker;
 
-    p{
-        color: $text-color-light;
-    }
-    h1{
-        color: $text-color-light;
-    }
-}
-.lightBackground{
-    background-color: white;
-}
 .show{
     height: 18rem;
     width: 18rem;
@@ -50,6 +37,21 @@
     @media(min-width: 1024px){
         
     }
+}
+
+.darkModeBackground{
+    background-color: $background-color-dark;
+    box-shadow: 3px 2px 6px 2px $background-color-darker;
+
+    p{
+        color: $text-color-light;
+    }
+    h1{
+        color: $text-color-light;
+    }
+}
+.lightBackground{
+    background-color: white;
 }
 
 .overlay{
