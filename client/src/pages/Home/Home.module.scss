@@ -1,4 +1,7 @@
 @import "variables";
+body{
+    min-height: 100vh;
+}
 
 .darkerModeBackground{
     background-color: $background-color-darker;
