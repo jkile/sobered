@@ -82,6 +82,7 @@ export default function LoginModal(props) {
   };
   if (resSignState) {
     props.modalClose;
+    setResSignState('')
   } else if (resState) {
     return <Redirect to="/home" />;
   } else if (!props.modalType) {
